@@ -83,7 +83,27 @@ function home(){
  </div></section>`;
 }
 function apartment(){
- return `<section class="detail"><div class="photo">TAHYS OURA · QUINTA PEDRA DOS BICOS</div>
+ const photos=[
+  {src:"https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/837a13e8-8737-4e7a-95b0-2f3b01a2e0cd.jpeg?im_w=1200",title:"Living room"},
+  {src:"https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/510ca674-86e9-49b5-ac55-8c7699a45aa3.jpeg?im_w=1200",title:"Bedroom 1"},
+  {src:"https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/e756e997-980c-4548-a481-6f725e7af7de.jpeg?im_w=1200",title:"Bedroom 2"},
+  {src:"https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9d6c3a43-8bf2-445e-8a02-3d160dd90e20.jpeg?im_w=1200",title:"Apartment"},
+  {src:"https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9213a4d1-ec7b-4bba-b3b2-4e0c7dc34b81.png?im_w=1200",title:"Living room · detail"}
+ ];
+ return `<section class="detail apartment-page">
+ <style>
+ .apt-gallery{display:grid;grid-template-columns:1.35fr 1fr;gap:7px;border-radius:22px;overflow:hidden;margin:-4px 0 22px;background:#eee}
+ .apt-gallery img{width:100%;height:145px;object-fit:cover;display:block;cursor:pointer;transition:transform .3s}
+ .apt-gallery img:first-child{height:297px;grid-row:span 2}
+ .apt-gallery img:hover{transform:scale(1.02)}
+ .gallery-note{font-size:11px;opacity:.58;margin:-12px 0 18px}
+ @media(max-width:520px){.apt-gallery{grid-template-columns:1.4fr 1fr}.apt-gallery img{height:105px}.apt-gallery img:first-child{height:217px}}
+ .apt-lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;display:none;align-items:center;justify-content:center;padding:18px}
+ .apt-lightbox img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:8px}
+ .apt-lightbox button{position:absolute;top:16px;right:16px;border:0;background:rgba(255,255,255,.16);color:#fff;width:42px;height:42px;border-radius:50%;font-size:25px}
+ </style>
+ <div class="apt-gallery">${photos.map((p,i)=>`<img src="${p.src}" alt="${p.title} — Tahys Oura Apartment" loading="${i?'lazy':'eager'}" onclick="openAptPhoto(${i})" onerror="this.style.opacity='.2'">`).join('')}</div>
+ <div class="gallery-note">Fotografias do anúncio oficial do Tahys Oura Apartment no Airbnb. <a href="https://www.airbnb.com/rooms/6195745" target="_blank" rel="noopener">Ver todas as fotografias no Airbnb ↗</a></div>
  <h1>The Apartment</h1>
  <p class="sub">Apartamento moderno e renovado, orientado a oeste, muito luminoso e com vista para o mar.</p>
  <div class="box"><h3>Características</h3><p>90 m² · 2 quartos · 6 camas · 1 casa de banho · máximo 6 hóspedes. O anúncio indica 2 camas de 80 cm num quarto, 2 camas de 90 cm no outro e 2 sofás-cama na sala.</p></div>
@@ -92,8 +112,22 @@ function apartment(){
  <div class="box"><h3>Varanda</h3><p>Varanda com banco para duas pessoas e vista mar, adequada para aproveitar o sol e o pôr do sol.</p></div>
  <div class="box"><h3>Amenities</h3><p>O anúncio indica sabonete e gel de duche de qualidade superior, da marca Bvlgari/Bulgari, além de toalhas.</p></div>
  <div class="box"><h3>Check-in / Check-out</h3><p>Check-in: 16:00–02:00 · Check-out: antes das 11:00.</p></div>
- <button class="btn" onclick="go('stay')">Open My Stay</button></section>`;
+ <button class="btn" onclick="go('stay')">Open My Stay</button>
+ <div id="aptLightbox" class="apt-lightbox" onclick="closeAptPhoto(event)"><button aria-label="Close">×</button><img id="aptLightboxImg" src="" alt=""></div>
+ </section>`;
 }
+function openAptPhoto(i){
+ const photos=[
+  "https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/837a13e8-8737-4e7a-95b0-2f3b01a2e0cd.jpeg?im_w=1600",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/510ca674-86e9-49b5-ac55-8c7699a45aa3.jpeg?im_w=1600",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/e756e997-980c-4548-a481-6f725e7af7de.jpeg?im_w=1600",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9d6c3a43-8bf2-445e-8a02-3d160dd90e20.jpeg?im_w=1600",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9213a4d1-ec7b-4bba-b3b2-4e0c7dc34b81.png?im_w=1600"
+ ];
+ const box=document.getElementById('aptLightbox'),img=document.getElementById('aptLightboxImg'); if(box&&img){img.src=photos[i];box.style.display='flex';}
+}
+function closeAptPhoto(e){if(e.target.id==='aptLightbox'||e.target.tagName==='BUTTON')document.getElementById('aptLightbox').style.display='none';}
+
 function stay(){
  if(!S.private)return `<section class="login"><span class="eyebrow" style="background:var(--deep);color:#fff">PRIVATE GUEST AREA</span>
  <h1>My Stay</h1><p class="sub">Introduza o código privado fornecido para a sua reserva.</p>
