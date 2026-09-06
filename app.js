@@ -210,10 +210,13 @@ function stay(){
  return `<section class="section luxury-page"><div class="page-kicker">YOUR PRIVATE JOURNEY</div><h1>My Stay</h1><p class="sub">Tudo o que precisa antes, durante e depois da chegada.</p>
  <div class="stay-hero"><div><small>WELCOME TO TAHYS OURA</small><strong>Your stay, your way.</strong><span>Serviço discreto. Informação simples. Experiências à sua medida.</span></div></div>
  <div class="lux-list">
- ${row("🚕","Airport Transfer","Faro Airport → Tahys Oura","transfer")}
- ${row("🎁","Welcome Amenities","Prepare os detalhes da sua chegada","amenities")}
- ${row("🛏️","Pillow Menu","Escolha o conforto da sua noite","pillows")}
- ${row("🛂","Guest Registration","Registo de hóspedes","registration")}
+ ${row("🏖️","Beaches","As melhores praias do Algarve","beaches")}
+ ${row("✦","Discover","Experiências e lugares a descobrir","discover")}
+ ${row("🍽️","Restaurants","Restaurantes seleccionados","restaurants")}
+ ${row("🤵","Concierge","Serviço e pedidos personalizados","concierge")}
+ ${row("🚘","Transfers","Mercedes-Benz · duração, distância e preço","transfer")}
+ ${row("🛂","SEF / Guest Registration","Formulário online e envio para reservas@tahys.pt","registration")}
+ ${row("🏖️","Beach Amenities","Chapéu de sol · toalhas · Aloe Vera","beachAmenities")}
  ${row("🔑","Keycard & Access","Entrada no edifício e apartamento","access")}
  ${row("📶","Wi‑Fi & Apartment Guide","Internet e equipamentos","wifi")}
  ${row("🛡️","Security","Contactos e emergência","security")}
@@ -308,14 +311,36 @@ function concierge(){
  <div class="box"><h3>Emergency</h3><p>Portugal · <b>112</b><br>Urbanização Quinta Pedra dos Bicos · Albufeira</p></div>
  </section>`;
 }
+function sendSEF(e){
+ e.preventDefault();
+ const f=new FormData(e.target);
+ const subject=encodeURIComponent('Dados de hóspedes — SEF / Guest Registration — Tahys Oura');
+ const body=encodeURIComponent([
+  'Dados de hóspedes para comunicação/registo:',
+  '',
+  'Nome completo: '+f.get('nome'),
+  'Morada: '+f.get('morada'),
+  'Nacionalidade: '+f.get('nacionalidade'),
+  'País emissor do documento: '+f.get('paisDocumento'),
+  'Local de nascimento: '+f.get('nascimento'),
+  'Número do documento de identificação: '+f.get('documento'),
+  'Data de check-in: '+f.get('checkin'),
+  'Data de check-out: '+f.get('checkout'),
+  '',
+  'Enviado através da área privada My Stay — Tahys Oura.'
+ ].join('\n'));
+ window.location.href='mailto:reservas@tahys.pt?subject='+subject+'&body='+body;
+ toast('A abrir o seu e-mail para enviar os dados.');
+}
 function login(){if(document.getElementById("code").value==="1234"){S.private=true;go("stay")}else toast("Código incorrecto. Use 1234 na demonstração.");}
 function toast(m){const t=document.getElementById("toast");t.textContent=m;t.style.display="block";setTimeout(()=>t.style.display="none",2400);}
 const routes={
  home,apartment,stay,restaurants,beaches,supermarkets,activities,discover,concierge,
- transfer:()=>privatePage("Airport Transfer","🚕",`<div class="box"><h3>Transfer</h3><p>Na V2 vamos criar um formulário real com voo, hora de chegada, passageiros, bagagem e confirmação do transfer Faro → Tahys Oura.</p></div><button class="btn" onclick="toast('Pedido guardado no modo demonstração.')">Request Transfer</button>`),
- amenities:()=>privatePage("Welcome Amenities","🎁",`<div class="box"><h3>Included</h3><p>O anúncio indica sabonete e gel de duche de qualidade superior. Na V2 vamos acrescentar a lista completa de amenities e a possibilidade de escolha antes da chegada.</p></div>`),
+ transfer:()=>privatePage("Transfers","🚘",`<div class="box transfer-box"><h3>Private Mercedes-Benz transfer</h3><p>Serviço privado entre o Aeroporto de Faro e Tahys Oura.</p><div class="transfer-facts"><div><small>Distância</small><strong>A definir</strong></div><div><small>Duração</small><strong>A definir</strong></div><div><small>Preço</small><strong>A definir</strong></div><div><small>Veículo</small><strong>Mercedes-Benz</strong></div></div><p class="muted">Os valores de distância, duração e preço serão apresentados/actualizados pelo anfitrião.</p></div><button class="btn" onclick="go('concierge')">Request Transfer</button>`),
+ amenities:()=>privatePage("Welcome Amenities","🎁",`<div class="box"><h3>Welcome Amenities</h3><p>Prepare os detalhes da sua chegada e indique preferências especiais.</p></div>`),
+ beachAmenities:()=>privatePage("Beach Amenities","🏖️",`<div class="box"><h3>Available for your beach days</h3><ul><li>☂️ Chapéu de sol</li><li>🏖️ Toalhas de praia</li><li>🌿 Aloe Vera</li></ul><p>Estes artigos estão disponíveis para utilização durante a sua estadia. Para pedidos ou necessidades adicionais, contacte o Concierge.</p></div><button class="btn" onclick="go('concierge')">Contact Concierge</button>`),
  pillows:()=>privatePage("Choose your pillows","🛏️",`<div class="box"><h3>Preference</h3><p><label><input type="radio" name="p" checked> Medium</label><br><label><input type="radio" name="p"> Soft</label><br><label><input type="radio" name="p"> Firm</label><br><label><input type="radio" name="p"> Memory Foam</label></p></div><button class="btn" onclick="toast('Preferência guardada.')">Save Choice</button>`),
- registration:()=>privatePage("Guest Registration","🛂",`<div class="box"><h3>Secure registration</h3><p>A V2 terá um formulário seguro para recolher os dados necessários à comunicação legal de hóspedes, com controlos de privacidade e retenção. Não inserir documentos reais nesta demonstração.</p></div><button class="btn" onclick="toast('Formulário seguro será ligado na V2.')">Start Registration</button>`),
+ registration:()=>privatePage("SEF / Guest Registration","🛂",`<div class="box sef-intro"><h3>Dados a fornecer</h3><p>Para o registo/comunicação de hóspedes, deverá fornecer, para cada hóspede, os seguintes dados:</p><ul><li>Nome completo</li><li>Morada</li><li>Nacionalidade</li><li>País emissor do documento de identificação</li><li>Local de nascimento</li><li>Número do documento de identificação</li><li>Data de check-in</li><li>Data de check-out</li></ul><p class="muted">Os dados preenchidos neste formulário serão preparados para envio para <b>reservas@tahys.pt</b>.</p></div><form class="sef-form" onsubmit="sendSEF(event)"><div class="form-grid"><label>Nome completo<input name="nome" required></label><label>Morada<input name="morada" required></label><label>Nacionalidade<input name="nacionalidade" required></label><label>País emissor do documento<input name="paisDocumento" required></label><label>Local de nascimento<input name="nascimento" required></label><label>Número do documento<input name="documento" required></label><label>Check-in<input name="checkin" type="date" required></label><label>Check-out<input name="checkout" type="date" required></label></div><label class="consent"><input name="consent" type="checkbox" required> Confirmo que os dados fornecidos são verdadeiros e autorizo o seu envio para reservas@tahys.pt para efeitos de registo de hóspedes.</label><button class="btn" type="submit">Enviar dados por e-mail</button></form><div class="notice">Também poderá descarregar uma versão imprimível/PDF através da função de impressão do dispositivo: <button class="text-btn" type="button" onclick="window.print()">Imprimir / Guardar como PDF</button></div>`),
  tax:()=>privatePage("Tourist Tax","💶",`<div class="box"><h3>Informação do anúncio</h3><p>O anúncio informa €2 por noite e por hóspede, até ao máximo de 7 noites, com isenção para crianças e jovens até aos 13 anos. Antes de usar esta informação operacionalmente, deve ser confirmada a regra municipal em vigor.</p></div>`),
  access:()=>privatePage("Keycard & Access","🔑",`<div class="box"><h3>Access</h3><p>Na V2 colocaremos as instruções exactas de entrada no edifício e apartamento, com fotografias e passos numerados.</p></div>`),
  security:()=>privatePage("Security","🛡️",`<div class="box"><h3>Emergency</h3><p>Emergência em Portugal: 112. Os contactos privados de segurança serão adicionados quando forem fornecidos.</p></div>`),
