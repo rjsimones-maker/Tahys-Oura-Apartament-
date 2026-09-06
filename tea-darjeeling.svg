@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="360" viewBox="0 0 240 360">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a27b4f"/><stop offset="1" stop-color="#f1ece2"/></linearGradient></defs>
+<rect x="22" y="10" width="196" height="340" rx="13" fill="url(#g)" stroke="#ffffff" stroke-width="4"/>
+<path d="M35 45 Q120 25 205 45" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="2"/>
+<text x="120" y="82" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" letter-spacing="3" fill="#2f302c">DAMMANN</text>
+<text x="120" y="105" text-anchor="middle" font-family="Georgia,serif" font-size="17" fill="#2f302c">Frères</text>
+<line x1="65" y1="128" x2="175" y2="128" stroke="#2f302c" stroke-opacity=".35"/>
+<text x="120" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="15" fill="#2f302c">DARJEELING</text>
+<text x="120" y="199" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" letter-spacing="2" fill="#2f302c">THÉ NOIR</text>
+<circle cx="120" cy="255" r="34" fill="#fff" fill-opacity=".42"/>
+<path d="M98 265 C105 238 137 238 144 265" fill="none" stroke="#2f302c" stroke-width="3"/>
+<path d="M101 266 H139" stroke="#2f302c" stroke-width="3"/>
+<path d="M146 248 C161 246 161 268 146 266" fill="none" stroke="#2f302c" stroke-width="3"/>
+<text x="120" y="316" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#2f302c">SÉLECTION DE THÉS</text>
+</svg>

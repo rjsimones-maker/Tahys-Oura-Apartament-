@@ -68,3 +68,22 @@
 
 .amenity-group{margin:20px 0 28px}.amenity-group-title{display:flex;gap:12px;align-items:center;margin-bottom:12px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.8);border:1px solid rgba(0,0,0,.08)}
 .amenity-group-title>span{font-size:30px}.amenity-group-title h3{margin:0 0 3px;font-size:18px}.amenity-group-title p{margin:0;font-size:12px;opacity:.68}
+
+/* V2.8 · DAMMANN Frères tea selection */
+.amenity-click{cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+.amenity-click:active{transform:scale(.985)}
+.amenity-open{display:inline-block;margin-top:9px;font-size:11px;font-weight:700;opacity:.72}
+.tea-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.tea-card{appearance:none;border:1px solid rgba(0,0,0,.09);background:rgba(255,255,255,.94);border-radius:20px;padding:0;overflow:hidden;text-align:left;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.06);transition:transform .18s ease,box-shadow .18s ease}
+.tea-card:active{transform:scale(.985)}
+.tea-sachet-wrap{height:190px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f7f3ed,#eee8df)}
+.tea-sachet-wrap img{height:175px;width:118px;object-fit:contain;filter:drop-shadow(0 8px 8px rgba(0,0,0,.14))}
+.tea-card-body{padding:13px 14px 15px}.tea-card-body h3{margin:0 0 4px;font-size:15px}.tea-card-body p{margin:0 0 9px;font-size:11px;opacity:.65}.tea-card-body span{font-size:11px;font-weight:700;opacity:.7}
+.tea-note{font-size:11px;opacity:.6;text-align:center;margin:20px 0}
+.tea-detail-card{max-width:620px;margin:12px auto;background:rgba(255,255,255,.95);border:1px solid rgba(0,0,0,.08);border-radius:24px;overflow:hidden;box-shadow:0 12px 34px rgba(0,0,0,.08)}
+.tea-detail-img{display:block;width:100%;height:300px;object-fit:contain;background:linear-gradient(135deg,#f7f3ed,#eee8df);padding:20px}
+.tea-detail-content{padding:22px}.tea-kicker{text-transform:uppercase;letter-spacing:.13em;font-size:10px;opacity:.55;margin-bottom:6px}.tea-detail-content h2{margin:0 0 5px;font-size:25px}.tea-type{font-size:12px;opacity:.62;margin-bottom:14px}.tea-detail-content>p{font-size:14px;line-height:1.65;margin:0 0 20px}
+.tea-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tea-info-grid>div{padding:13px;border-radius:16px;background:#f7f4ef;display:flex;flex-direction:column;gap:4px}.tea-info-grid span{font-size:18px}.tea-info-grid b{font-size:10px;text-transform:uppercase;letter-spacing:.08em;opacity:.55}.tea-info-grid strong{font-size:13px;line-height:1.35}.tea-info-grid .tea-profile{grid-column:1/-1}
+.tea-official{display:block;margin-top:18px;text-align:center;font-size:11px;font-weight:700;text-decoration:none;opacity:.7}
+.tea-mini-sachet{width:54px;height:78px;border-radius:7px 7px 9px 9px;background:linear-gradient(180deg,#f5f0e5,#e4d9c4);border:1px solid rgba(0,0,0,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 6px 10px rgba(0,0,0,.12);font-size:7px;letter-spacing:.12em}.tea-mini-sachet b{font-family:serif;font-size:9px;letter-spacing:0}
+@media(max-width:520px){.tea-grid{grid-template-columns:1fr 1fr}.tea-sachet-wrap{height:175px}.tea-sachet-wrap img{height:160px}.tea-detail-img{height:270px}}

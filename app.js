@@ -1,4 +1,4 @@
-const S={r:"home",private:false,cat:"All",price:"All",dist:"All"};
+const S={r:"home",private:false,cat:"All",price:"All",dist:"All",tea:null};
 
 const restaurantData=[
   {name:"Happy Sumo",cat:"Sushi",price:"€€",dist:0.4,beach:"Santa Eulália",desc:"Sushi e cozinha japonesa em Santa Eulália.",url:"https://www.google.com/maps/search/?api=1&query=Happy+Sumo+Santa+Eulalia+Albufeira",website:"https://restaurantehappysumo.makro.rest/?lang=pt",review:"https://www.tripadvisor.pt/Restaurant_Review-g189112-d5541896-Reviews-Happy_Sumo-Albufeira_Faro_District_Algarve.html",phone:"+351 289 582 083"},
@@ -394,10 +394,54 @@ function concierge(){
 }
 function login(){if(document.getElementById("code").value==="1234"){S.private=true;go("stay")}else toast("Código incorrecto. Use 1234 na demonstração.");}
 function toast(m){const t=document.getElementById("toast");t.textContent=m;t.style.display="block";setTimeout(()=>t.style.display="none",2400);}
+
+const teaData=[
+ {id:"camomille",name:"Camomille",type:"Infusão",img:"tea-camomille.svg",temp:"100°C",time:"6 min",profile:"Suave e delicada, com notas florais e frutadas.",desc:"Infusão de camomila, de carácter suave e delicado. Uma opção naturalmente sem cafeína.",url:"https://www.dammann.fr/fr/camomille.html"},
+ {id:"earl-grey",name:"Earl Grey Yin Zhen",type:"Chá preto · Bergamota",img:"tea-earl-grey.svg",temp:"90°C",time:"4–5 min",profile:"Frutado, com a elegante nota de bergamota.",desc:"Uma seleção de finos chás pretos enriquecida com pontas brancas e pétalas, aromatizada com bergamota da Calábria.",url:"https://www.dammann.fr/fr/earl-grey-yin-zhen-50-sachets-cristal.html"},
+ {id:"breakfast",name:"Breakfast",type:"Chá preto",img:"tea-breakfast.svg",temp:"90°C",time:"4–5 min",profile:"Encorpado, amadeirado e persistente.",desc:"Uma mistura de chás selecionados para um chá de pequeno-almoço encorpado e estimulante.",url:"https://www.dammann.fr/fr/breakfast-50-sachets-cristal.html"},
+ {id:"darjeeling",name:"Darjeeling",type:"Chá preto · Índia",img:"tea-darjeeling.svg",temp:"90°C",time:"4–5 min",profile:"Delicado, aromático, com notas de amêndoa e fruta.",desc:"Um chá de Darjeeling de carácter elegante e delicado, ideal para apreciar simples.",url:"https://www.dammann.fr/fr/darjeeling-50-sachets-cristal.html"},
+ {id:"4-fruits",name:"4 Fruits Rouges",type:"Chá preto · Frutos vermelhos",img:"tea-4-fruits-rouges.svg",temp:"90°C",time:"4–5 min",profile:"Intensamente frutado: cereja, framboesa, morango e groselha.",desc:"Chá preto aromatizado com quatro notas de frutos vermelhos.",url:"https://www.dammann.fr/fr/4-fruits-rouges-25-sachets-cristal.html"},
+ {id:"ceylan",name:"Ceylan O.P.",type:"Chá preto · Sri Lanka",img:"tea-ceylan.svg",temp:"90°C",time:"3–5 min",profile:"Suave, amadeirado, floral e ligeiramente especiado.",desc:"Chá preto originário do Sri Lanka, de perfil aromático e redondo.",url:"https://www.dammann.fr/fr/ceylan-op-50-sachets-cristal-.html"},
+ {id:"jasmin",name:"Thé vert au Jasmin",type:"Chá verde · Jasmim",img:"tea-jasmin.svg",temp:"80°C",time:"3–4 min",profile:"Floral, fresco e delicadamente vegetal.",desc:"Chá verde perfumado com jasmim, de infusão delicada e fresca.",url:"https://www.dammann.fr/fr/the-vert-au-jasmin-25-sachets-cristal.html"},
+ {id:"gunpowder",name:"Chine Gunpowder",type:"Chá verde · China",img:"tea-gunpowder.svg",temp:"80°C",time:"3–4 min",profile:"Vegetal, vivo e ligeiramente adstringente.",desc:"Chá verde chinês cujas folhas enroladas dão origem ao nome Gunpowder. É também tradicionalmente usado para preparar chá de menta.",url:"https://www.dammann.fr/fr/the-de-chine-gunpowder.html"}
+];
+
+function teaPage(){
+ const selected=teaData.find(t=>t.id===S.tea);
+ if(selected) return `<section class="section tea-detail">
+   <button class="back" onclick="S.tea=null;render()">← Voltar aos chás</button>
+   <div class="tea-detail-card">
+    <img class="tea-detail-img" src="${selected.img}" alt="${selected.name}">
+    <div class="tea-detail-content">
+      <div class="tea-kicker">DAMMANN Frères</div>
+      <h2>${selected.name}</h2>
+      <div class="tea-type">${selected.type}</div>
+      <p>${selected.desc}</p>
+      <div class="tea-info-grid">
+       <div><span>🌡️</span><b>Preparação</b><strong>${selected.temp}</strong></div>
+       <div><span>⏱️</span><b>Infusão</b><strong>${selected.time}</strong></div>
+       <div class="tea-profile"><span>☕</span><b>Perfil</b><strong>${selected.profile}</strong></div>
+      </div>
+      <a class="tea-official" href="${selected.url}" target="_blank" rel="noopener">Ver ficha oficial DAMMANN Frères ↗</a>
+    </div>
+   </div>
+ </section>`;
+ return `<section class="section tea-page">
+   <button class="back" onclick="go('amenities')">← Welcome Amenities</button>
+   <h2>Chá DAMMANN Frères</h2>
+   <p class="sub">Uma seleção de chás e infusões para escolher durante a sua estadia. Toque numa saqueta para conhecer o tipo de chá, a preparação e o perfil.</p>
+   <div class="tea-grid">${teaData.map(t=>`<button class="tea-card" onclick="S.tea='${t.id}';render()">
+     <div class="tea-sachet-wrap"><img src="${t.img}" alt="${t.name}"></div>
+     <div class="tea-card-body"><h3>${t.name}</h3><p>${t.type}</p><span>Ver detalhes →</span></div>
+   </button>`).join("")}</div>
+   <p class="tea-note">A seleção disponibilizada pode variar de acordo com a disponibilidade.</p>
+ </section>`;
+}
+
 const routes={
  home,apartment,stay,poolAccess,beachAccess,restaurants,beaches,supermarkets,activities,discover,discoveryPublic,discoveryPrivate,concierge,pharmacy,nightlife,exploreAlgarve,sunset,gastronomy,
  transfer:()=>privatePage("Airport Transfer","🚕",`<div class="box"><h3>Transfer</h3><p>Na V2 vamos criar um formulário real com voo, hora de chegada, passageiros, bagagem e confirmação do transfer Faro → Tahys Oura.</p></div><button class="btn" onclick="toast('Pedido guardado no modo demonstração.')">Request Transfer</button>`),
- amenities:()=>privatePage("Welcome Amenities","🎁",`<div class="box"><h3>Included</h3><p>O anúncio indica sabonete e gel de duche de qualidade superior. Na V2 vamos acrescentar a lista completa de amenities e a possibilidade de escolha antes da chegada.</p></div>`),
+ amenities:welcomeAmenities, tea:teaPage,
  pillows:()=>privatePage("Choose your pillows","🛏️",`<div class="box"><h3>Preference</h3><p><label><input type="radio" name="p" checked> Medium</label><br><label><input type="radio" name="p"> Soft</label><br><label><input type="radio" name="p"> Firm</label><br><label><input type="radio" name="p"> Memory Foam</label></p></div><button class="btn" onclick="toast('Preferência guardada.')">Save Choice</button>`),
  registration:()=>privatePage("Guest Registration","🛂",`<div class="box"><h3>Secure registration</h3><p>A V2 terá um formulário seguro para recolher os dados necessários à comunicação legal de hóspedes, com controlos de privacidade e retenção. Não inserir documentos reais nesta demonstração.</p></div><button class="btn" onclick="toast('Formulário seguro será ligado na V2.')">Start Registration</button>`),
  tax:()=>privatePage("Tourist Tax","💶",`<div class="box"><h3>Informação do anúncio</h3><p>O anúncio informa €2 por noite e por hóspede, até ao máximo de 7 noites, com isenção para crianças e jovens até aos 13 anos. Antes de usar esta informação operacionalmente, deve ser confirmada a regra municipal em vigor.</p></div>`),
@@ -439,9 +483,9 @@ function welcomeAmenities(){
  <p class="sub">Tudo o que preparámos para tornar a sua chegada mais confortável.</p>
  ${groups.map((g,i)=>`<div class="amenity-group ${i===0?'wc-group':''}">
    <div class="amenity-group-title"><span>${g.icon}</span><div><h3>${g.title}</h3><p>${i===0?'Cuidados e produtos disponíveis na casa de banho.':'Pequenos detalhes preparados para a sua estadia.'}</p></div></div>
-   <div class="amenities-grid">${g.items.map(a=>`<div class="amenity-card">
-    <div class="amenity-image">${a.icon}</div>
-    <div class="amenity-body"><h3>${a.name}</h3><p>${a.desc}</p></div>
+   <div class="amenities-grid">${g.items.map(a=>`<div class="amenity-card ${a.name==="Dammann Frères"?'amenity-click':''}" ${a.name==="Dammann Frères"?'onclick="go(\'tea\')"':''}>
+    <div class="amenity-image">${a.name==="Dammann Frères"?'<div class="tea-mini-sachet"><span>DAMMANN</span><b>Frères</b></div>':a.icon}</div>
+    <div class="amenity-body"><h3>${a.name}</h3><p>${a.desc}</p>${a.name==="Dammann Frères"?'<span class="amenity-open">Ver seleção de chás →</span>':''}</div>
    </div>`).join("")}</div>
  </div>`).join("")}
  </section>`;
