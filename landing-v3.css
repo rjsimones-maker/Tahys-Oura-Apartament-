@@ -15,3 +15,7 @@ body.home-mode .lang-toggle{height:40px;border:0;background:transparent;backdrop
 body.home-mode .booking-btn{height:42px;min-width:92px;border-radius:22px;border:1px solid #fff;background:#fff;color:#17333a;padding:0 18px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-size:11px;letter-spacing:.08em;font-weight:800;box-shadow:0 3px 16px rgba(0,0,0,.18)}
 body.home-mode .home-center{display:none!important}
 @media(max-width:520px){body.home-mode .home-topbar{height:78px;padding:12px 14px}body.home-mode .hamburger{width:43px;height:43px}body.home-mode .hamburger i{width:27px}body.home-mode .home-logo{width:50px;height:50px}body.home-mode .home-actions{gap:10px}body.home-mode .booking-btn{min-width:78px;padding:0 13px}}
+
+/* V3.1 — neutral champagne background for inner sections */
+body:not(.home-mode){background:#e8dfce}
+body:not(.home-mode) .app{background:#e8dfce}
