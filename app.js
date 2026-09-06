@@ -44,36 +44,36 @@ const beachData=[
     name:"Praia Dona Ana",dist:"≈ 40 km",
     maps:"https://www.google.com/maps/search/?api=1&query=Praia+Dona+Ana+Lagos+Portugal",
     desc:"Uma das praias mais emblemáticas de Lagos, enquadrada por falésias douradas e águas cristalinas.",
-    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Praia_Dona_Ana_-_Lagos_-_Portugal_%2851197057778%29.jpg/960px-Praia_Dona_Ana_-_Lagos_-_Portugal_%2851197057778%29.jpg",
-    credit:"Dona Ana · Lagos",
-    creditUrl:"https://www.google.com/maps/search/?api=1&query=Praia+Dona+Ana+Lagos+Portugal",
+    image:"https://commons.wikimedia.org/wiki/Special:FilePath/Strand%20Praia%20do%20Ana%20Lagos%20%2827637241801%29.jpg?width=1200",
+    credit:"Foto: Wikimedia Commons",
+    creditUrl:"https://commons.wikimedia.org/wiki/Category:Praia_da_Dona_Ana_(Lagos)",
     restaurants:[]
   },
   {
     name:"Praia do Camilo",dist:"≈ 41 km",
     maps:"https://www.google.com/maps/search/?api=1&query=Praia+do+Camilo+Lagos+Portugal",
     desc:"Pequena enseada de Lagos, famosa pelas falésias, águas transparentes e acesso por escadaria.",
-    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Praia_do_Camilo_Lagos_Portugal.jpg/960px-Praia_do_Camilo_Lagos_Portugal.jpg",
-    credit:"Praia do Camilo · Lagos",
-    creditUrl:"https://www.google.com/maps/search/?api=1&query=Praia+do+Camilo+Lagos+Portugal",
+    image:"https://commons.wikimedia.org/wiki/Special:FilePath/Strand%20Praia%20do%20camilo%20Lagos.jpg?width=1200",
+    credit:"Foto: Wikimedia Commons · CC BY 3.0",
+    creditUrl:"https://commons.wikimedia.org/wiki/File:Strand_Praia_do_camilo_Lagos.jpg",
     restaurants:[]
   },
   {
     name:"Praia da Marinha",dist:"≈ 45 km",
     maps:"https://www.google.com/maps/search/?api=1&query=Praia+da+Marinha+Lagoa+Portugal",
     desc:"Uma das paisagens costeiras mais reconhecidas do Algarve, com falésias calcárias e águas azul-turquesa.",
-    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Praia_da_Marinha_-_Algarve_-_Portugal_%2835248503130%29.jpg/960px-Praia_da_Marinha_-_Algarve_-_Portugal_%2835248503130%29.jpg",
-    credit:"Praia da Marinha · Lagoa",
-    creditUrl:"https://www.google.com/maps/search/?api=1&query=Praia+da+Marinha+Lagoa+Portugal",
+    image:"https://commons.wikimedia.org/wiki/Special:FilePath/Praia%20da%20Marinha%207.jpg?width=1200",
+    credit:"Foto: Wikimedia Commons",
+    creditUrl:"https://commons.wikimedia.org/wiki/Category:Praia_da_Marinha",
     restaurants:[]
   },
   {
     name:"Prainha · Alvor",dist:"≈ 40 km",
     maps:"https://www.google.com/maps/search/?api=1&query=Prainha+Alvor+Algarve+Portugal",
     desc:"Pequenas praias encaixadas nas falésias junto a Alvor, com um ambiente mais reservado.",
-    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Praia_da_Prainha_Alvor.jpg/960px-Praia_da_Prainha_Alvor.jpg",
-    credit:"Prainha · Alvor",
-    creditUrl:"https://www.google.com/maps/search/?api=1&query=Prainha+Alvor+Algarve+Portugal",
+    image:"https://commons.wikimedia.org/wiki/Special:FilePath/Prainha%20Portim%C3%A3o%202025%2001.jpg?width=1200",
+    credit:"Foto: Wikimedia Commons",
+    creditUrl:"https://commons.wikimedia.org/wiki/Category:Prainha_(Portim%C3%A3o)",
     restaurants:[]
   },
   {
@@ -81,9 +81,9 @@ const beachData=[
     maps:"https://www.google.com/maps/search/?api=1&query=Praia+da+Falesia+Olhos+de+Agua+Portugal",
     award:"TRIPADVISOR · BEST OF THE BEST 2024 · #1 WORLD",
     desc:"Extensa praia de areia dourada e falésias vermelhas. Foi eleita pelo Tripadvisor como a melhor praia do mundo em 2024.",
-    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Praia_da_Falesia_Albufeira.jpg/960px-Praia_da_Falesia_Albufeira.jpg",
-    credit:"Praia da Falésia · Algarve",
-    creditUrl:"https://www.tripadvisor.com/TravelersChoice-Beaches",
+    image:"https://commons.wikimedia.org/wiki/Special:FilePath/Praia%20da%20Fal%C3%A9sia%2C%20Olhos%20de%20%C3%81gua%20%2836840598556%29.jpg?width=1200",
+    credit:"Foto: Wikimedia Commons",
+    creditUrl:"https://commons.wikimedia.org/wiki/Category:Praia_da_Fal%C3%A9sia",
     restaurants:[]
   }
 ];
@@ -108,29 +108,26 @@ function card(icon,title,text,route){
   </div>`;
 }
 function home(){
- return `
- <div class="hero"><span class="eyebrow">ALBUFEIRA · ALGARVE</span>
- <h1>Tahys Oura<br>Apartment</h1>
- <p>Seu guia privado para uma estadia especial no Algarve.</p></div>
- <section class="section">
- <h2>Welcome</h2>
- <p class="sub">Bem-vindo ao Tahys Oura Apartment. O apartamento está situado na Urbanização Quinta Pedra dos Bicos, em frente à Praia da Oura, com vista mar e a poucos minutos a pé das principais praias e serviços.</p>
- <div class="grid">
- ${card("🏠","The Apartment","90 m² · 2 quartos · 6 hóspedes · vista mar","apartment")}
- ${card("♧","My Stay","Tudo o que precisa antes e durante a estadia.","stay")}
- ${card("🍽️","Eat & Drink","Restaurantes por cozinha, preço e distância.","restaurants")}
- ${card("🏖️","Beaches","Praias com fotografia e restaurantes de praia.","beaches")}
- ${card("🗺️","Discover","Locais a visitar em Albufeira e no Algarve.","discover")}
- ${card("🎯","Activities","Experiências para famílias, casais e aventura.","activities")}
- </div></section>
- <section class="section"><h2>At a glance</h2>
- <div class="list">
- ${row("🌊","Praia da Oura Leste","Aproximadamente 150 m","beaches")}
- ${row("🛒","Intermarché","Aproximadamente 100 m","supermarkets")}
- ${row("🛒","Aldi","Aproximadamente 400 m","supermarkets")}
- ${row("🌙","Oura Strip","Aproximadamente 200 m","discover")}
+ return `<section class="lux-home">
+   <div class="lux-home-video"><video autoplay muted loop playsinline preload="auto"><source src="hero-video.mp4" type="video/mp4"></video><div class="lux-home-shade"></div></div>
+   <div class="lux-home-inner">
+    <div class="lux-kicker">ALBUFEIRA · ALGARVE · PORTUGAL</div>
+    <div class="lux-monogram">T</div>
+    <h1>Tahys Oura</h1><div class="lux-rule"></div>
+    <p>A private home by the Atlantic.</p>
+    <button class="lux-cta" onclick="go('apartment')">EXPLORE YOUR STAY <span>→</span></button>
+    <div class="lux-home-links"><button onclick="go('apartment')">The Apartment</button><button onclick="go('stay')">My Stay</button><button onclick="go('discover')">Discover Algarve</button></div>
+   </div><div class="lux-scroll">SCROLL TO DISCOVER</div>
+ </section>
+ <section class="lux-intro"><div class="lux-eyebrow">YOUR PRIVATE GUIDE</div><h2>Stay slowly.<br>Discover deeply.</h2><p>Everything you need for an effortless stay — your home, the coast, the table and the experiences worth leaving the apartment for.</p>
+ <div class="lux-feature-grid">
+  ${luxFeature('The Apartment','Private spaces, sea light and everything you need to settle in.','apartment','🏠')}
+  ${luxFeature('My Stay','Arrival, access, amenities and practical details in one place.','stay','✦')}
+  ${luxFeature('Eat & Drink','Hand-picked restaurants, beach tables and local flavours.','restaurants','◌')}
+  ${luxFeature('Discover Algarve','Beaches, culture, nature and experiences around Albufeira.','discover','○')}
  </div></section>`;
 }
+function luxFeature(title,text,route,icon){return `<button class="lux-feature" onclick="go('${route}')"><span class="lux-feature-img">${icon}</span><span><small>DISCOVER</small><strong>${title}</strong><em>${text}</em></span><b>↗</b></button>`;}
 function apartment(){
  const photos={
   "Sala":[
@@ -153,7 +150,7 @@ function apartment(){
   ]
  };
  const tabs=Object.keys(photos);
- return `<section class="detail apartment-page">
+ return `<section class="detail apartment-page luxury-page">
  <style>
  .apt-tabs{display:flex;gap:7px;overflow-x:auto;padding:2px 0 10px;margin:0 0 14px;scrollbar-width:none}
  .apt-tabs::-webkit-scrollbar{display:none}
@@ -171,14 +168,14 @@ function apartment(){
  .apt-lightbox img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:8px}
  .apt-lightbox button{position:absolute;top:16px;right:16px;border:0;background:rgba(255,255,255,.16);color:#fff;width:42px;height:42px;border-radius:50%;font-size:25px}
  </style>
- <h1>The Apartment</h1>
+ <div class="page-kicker">THE PRIVATE RESIDENCE</div><h1>The Apartment</h1>
  <p class="sub">Conheça cada espaço do Tahys Oura Apartment.</p>
  <div class="apt-tabs">${tabs.map((t,i)=>`<button class="apt-tab ${i===0?'active':''}" onclick="showAptTab('${t.replace(/'/g,"\\'")}',this)">${t}</button>`).join('')}</div>
  ${tabs.map((t,i)=>`<div class="apt-panel ${i===0?'active':''}" data-apt-tab="${t}">
    <div class="apt-grid">${photos[t].map((p,j)=>`<figure class="apt-card" onclick="openAptPhoto('${t}',${j})"><img src="${p.src}" alt="${p.title} — Tahys Oura Apartment" loading="${i||j?'lazy':'eager'}" onerror="this.style.opacity='.25'"><figcaption class="apt-caption">${p.title}</figcaption></figure>`).join('')}</div>
  </div>`).join('')}
  <div class="gallery-note">Fotografias do anúncio oficial do Tahys Oura Apartment no Airbnb. A página identifica estes espaços no anúncio; algumas fotografias podem ser atualizadas pelo anfitrião. <a href="https://www.airbnb.com/rooms/6195745" target="_blank" rel="noopener">Ver todas as fotografias no Airbnb ↗</a></div>
- <div class="box"><h3>O apartamento</h3><p>90 m² · 2 quartos · 6 camas · 1 casa de banho · máximo 6 hóspedes. Apartamento renovado, muito luminoso, virado a oeste, com vista mar.</p></div>
+ <div class="lux-story"><div class="page-kicker">A PLACE TO ARRIVE</div><h2>Designed for slow mornings and Atlantic evenings.</h2><p>90 m² de espaço privado, luz natural e vista mar — um apartamento pensado para viver o Algarve com conforto e calma.</p></div><div class="box"><h3>O apartamento</h3><p>90 m² · 2 quartos · 6 camas · 1 casa de banho · máximo 6 hóspedes. Apartamento renovado, muito luminoso, virado a oeste, com vista mar.</p></div>
  <div class="box"><h3>Conforto</h3><p>Vidro duplo, isolamento térmico e acústico, ar condicionado nos quartos e sala, Smart TV, Wi‑Fi, cozinha equipada, máquina de lavar roupa e máquina de lavar loiça.</p></div>
  <div class="box"><h3>Quartos</h3><p>As camas individuais podem ser unidas para formar uma cama dupla tipo king. Blackouts foram previstos para melhorar o conforto durante o sono.</p></div>
  <div class="box"><h3>Varanda</h3><p>Banco para duas pessoas e vista mar, ideal para aproveitar o pôr do sol.</p></div>
@@ -209,21 +206,18 @@ function openAptPhoto(tab,i){
 function closeAptPhoto(e){if(e.target.id==='aptLightbox'||e.target.tagName==='BUTTON')document.getElementById('aptLightbox').style.display='none';}
 
 function stay(){
- if(!S.private)return `<section class="login"><span class="eyebrow" style="background:var(--deep);color:#fff">PRIVATE GUEST AREA</span>
- <h1>My Stay</h1><p class="sub">Introduza o código privado fornecido para a sua reserva.</p>
- <input id="code" inputmode="numeric" placeholder="Guest code">
- <button class="btn" onclick="login()">Enter Guest Area</button>
- <div class="notice">Código de demonstração V1.2: <b>1234</b>. Na versão de produção, cada reserva terá um código próprio.</div></section>`;
- return `<section class="section"><h2>My Stay</h2><p class="sub">Bem-vindo. Aqui encontra a informação prática da sua estadia.</p>
- <div class="list">
+ if(!S.private)return `<section class="lux-login"><div class="page-kicker">PRIVATE GUEST AREA</div><h1>My Stay</h1><p>Uma área privada para preparar a chegada e tornar a estadia simples.</p><input id="code" inputmode="numeric" placeholder="Guest code"><button class="btn" onclick="login()">Enter Guest Area</button><div class="notice">Demonstração: <b>1234</b>. Em produção, cada reserva terá um código próprio.</div></section>`;
+ return `<section class="section luxury-page"><div class="page-kicker">YOUR PRIVATE JOURNEY</div><h1>My Stay</h1><p class="sub">Tudo o que precisa antes, durante e depois da chegada.</p>
+ <div class="stay-hero"><div><small>WELCOME TO TAHYS OURA</small><strong>Your stay, your way.</strong><span>Serviço discreto. Informação simples. Experiências à sua medida.</span></div></div>
+ <div class="lux-list">
  ${row("🚕","Airport Transfer","Faro Airport → Tahys Oura","transfer")}
- ${row("🎁","Welcome Amenities","Produtos e ofertas de boas-vindas","amenities")}
- ${row("🛏️","Choose your pillows","Escolha o seu tipo de almofada","pillows")}
- ${row("🛂","Guest Registration","Registo obrigatório de hóspedes","registration")}
- ${row("💶","Tourist Tax","Informação sobre taxa turística","tax")}
+ ${row("🎁","Welcome Amenities","Prepare os detalhes da sua chegada","amenities")}
+ ${row("🛏️","Pillow Menu","Escolha o conforto da sua noite","pillows")}
+ ${row("🛂","Guest Registration","Registo de hóspedes","registration")}
  ${row("🔑","Keycard & Access","Entrada no edifício e apartamento","access")}
- ${row("🛡️","Security","Contactos de segurança e emergência","security")}
  ${row("📶","Wi‑Fi & Apartment Guide","Internet e equipamentos","wifi")}
+ ${row("🛡️","Security","Contactos e emergência","security")}
+ ${row("💶","Tourist Tax","Informação da estadia","tax")}
  </div></section>`;
 }
 function privatePage(title,icon,body){
@@ -232,17 +226,13 @@ function privatePage(title,icon,body){
 
 function restaurants(){
  const cats=["All","Seafood","Portuguese","Sushi","Italian","Michelin","Beach & Sunset"];
- const filtered=restaurantData.filter(x=>(S.cat==="All"||x.cat===S.cat))
- .filter(x=>S.price==="All"||x.price===S.price)
- .filter(x=>S.dist==="All"||x.dist<=Number(S.dist));
- return `<section class="section"><h2>Eat & Drink</h2><p class="sub">Restaurantes reais seleccionados, por cozinha, preço e distância aproximada.</p>
- <div class="tags">${cats.map(c=>`<button class="tag ${S.cat===c?"active":""}" onclick="S.cat='${c}';render()">${c}</button>`).join("")}</div>
- <div class="filters"><select onchange="S.price=this.value;render()"><option value="All">Any price</option><option>€</option><option>€€</option><option>€€€</option><option>€€€€</option></select>
- <select onchange="S.dist=this.value;render()"><option value="All">Any distance</option><option value="1">≤ 1 km</option><option value="2">≤ 2 km</option><option value="5">≤ 5 km</option><option value="10">≤ 10 km</option></select></div>
- <div class="list">${filtered.map(x=>`<div class="row" onclick="window.open('${x.url}','_blank')"><div class="ico">🍽️</div><div class="grow"><h3>${x.name}</h3><p>${x.cat} · ${x.price} · ${x.dist} km<br>${x.beach}<br>${x.desc}</p></div><b>↗</b></div>`).join("")||'<div class="notice">No restaurants match these filters.</div>'}</div>
- </section>`;
+ const filtered=restaurantData.filter(x=>(S.cat==="All"||x.cat===S.cat)).filter(x=>S.price==="All"||x.price===S.price).filter(x=>S.dist==="All"||x.dist<=Number(S.dist));
+ return `<section class="section luxury-page"><div class="page-kicker">THE TABLE</div><h1>Eat & Drink</h1><p class="sub">Good food is part of the destination. Explore our nearby favourites.</p>
+ <div class="editorial-banner editorial-food"><span>ALGARVE AT THE TABLE</span><strong>From sea to sunset.</strong></div>
+ <div class="tags luxury-tags">${cats.map(c=>`<button class="tag ${S.cat===c?"active":""}" onclick="S.cat='${c}';render()">${c}</button>`).join("")}</div>
+ <div class="filters"><select onchange="S.price=this.value;render()"><option value="All">Any price</option><option>€</option><option>€€</option><option>€€€</option><option>€€€€</option></select><select onchange="S.dist=this.value;render()"><option value="All">Any distance</option><option value="1">≤ 1 km</option><option value="2">≤ 2 km</option><option value="5">≤ 5 km</option><option value="10">≤ 10 km</option></select></div>
+ <div class="lux-list">${filtered.map(x=>`<div class="lux-restaurant" onclick="window.open('${x.url}','_blank')"><div class="lux-restaurant-mark">${x.cat==="Seafood"?"◒":x.cat==="Sushi"?"◌":"✦"}</div><div><small>${x.cat} · ${x.price} · ${x.dist} km</small><h3>${x.name}</h3><p>${x.desc}</p><span>${x.beach}</span></div><b>↗</b></div>`).join("")||'<div class="notice">No restaurants match these filters.</div>'}</div></section>`;
 }
-
 function beachRestaurantCard(x){
  const r=restaurantData.find(a=>a.name===x);
  if(!r)return "";
@@ -286,33 +276,37 @@ function beaches(){
  </section>`;
 }
 function supermarkets(){
- return `<section class="section"><h2>Supermarkets</h2><p class="sub">Os supermercados indicados no anúncio do apartamento.</p>
- <div class="list">${row("🛒","Intermarché","Aproximadamente 100 m do apartamento")}${row("🛒","Aldi","Aproximadamente 400 m do apartamento")}</div>
- <div class="notice">Na V2 adicionaremos mapa, horários, distância exacta e indicação de aberto agora.</div></section>`;
+ return `<section class="section luxury-page"><div class="page-kicker">EVERYDAY ESSENTIALS</div><h1>Groceries</h1><p class="sub">Everything you need, close to home.</p><div class="editorial-banner editorial-grocery"><span>LOCAL & EASY</span><strong>Keep the fridge simple.</strong></div><div class="lux-list">${row("🛒","Intermarché","Aproximadamente 100 m do apartamento")}${row("🛒","Aldi","Aproximadamente 400 m do apartamento")}</div><div class="notice">Horários e localização exacta podem ser adicionados ao guia final.</div></section>`;
 }
 function activities(){
- return `<section class="section"><h2>Activities</h2><p class="sub">Algumas ideias para começar a explorar a região.</p>
- <div class="grid">${activityData.map(x=>card(x.icon,x.name,x.meta+" · "+x.desc)).join("")}</div></section>`;
+ return `<section class="section luxury-page"><div class="page-kicker">THE ALGARVE, YOUR WAY</div><h1>Experiences</h1><p class="sub">Choose your pace — sea, discovery, food, sport or simply doing less.</p>
+ <div class="experience-grid">${activityData.map((x,i)=>`<button class="experience-card ex-${i}" onclick="toast('Experience details coming soon.')"><span>${x.icon}</span><small>${x.meta}</small><strong>${x.name}</strong><em>${x.desc}</em><b>↗</b></button>`).join("")}</div>
+ <div class="lux-story"><div class="page-kicker">A FEW MORE HOURS IN THE SUN</div><h2>Let the day unfold.</h2><p>Sunrise swim. Long lunch. A boat into the caves. Sunset over the Atlantic. The best plans in the Algarve often leave room for spontaneity.</p></div></section>`;
 }
 function discover(){
- return `<section class="section"><h2>Discover Algarve</h2><p class="sub">Alguns pontos e experiências referidos no anúncio.</p>
- <div class="list">
- ${row("🏛️","Old Town Albufeira","Centro histórico, restaurantes e miradouros")}
- ${row("🌊","Benagil Caves","Passeios de barco e grutas da costa algarvia")}
- ${row("🐓","Guia","Aproximadamente 8 km · conhecida pelo frango da Guia")}
- ${row("💦","Slide & Splash","Aproximadamente 15 km")}
- ${row("🎢","Aquashow","Aproximadamente 30 km")}
- ${row("🐬","Zoomarine","Aproximadamente 6 km")}
- </div></section>`;
+ const ds=[
+  ['🏖️','The Coast','Beaches','Praia da Oura, Falésia, Marinha, Dona Ana and Camilo.','beaches'],
+  ['🍽️','The Table','Eat & Drink','Local restaurants, seafood and sunset tables.','restaurants'],
+  ['🏛️','The Old Town','Culture','Ruas, miradouros and the historic heart of Albufeira.','discover'],
+  ['⛵','The Sea','Experiences','Boat trips, caves, sunset and the Atlantic.','activities'],
+  ['🌿','The Wild Algarve','Nature','Cliffs, hidden coves and landscapes beyond the resort.','activities'],
+  ['🏌️','The Game','Sport','Golf, water sports and outdoor adventures.','activities']
+ ];
+ return `<section class="section luxury-page"><div class="page-kicker">BEYOND THE APARTMENT</div><h1>Discover Algarve</h1><p class="sub">A local guide to the places and moments that make this coast special.</p>
+ <div class="discover-grid">${ds.map(x=>`<button class="discover-card" onclick="go('${x[4]}')"><div class="discover-photo">${x[0]}</div><small>${x[1]}</small><strong>${x[2]}</strong><p>${x[3]}</p><b>DISCOVER ↗</b></button>`).join('')}</div>
+ <div class="lux-story dark"><div class="page-kicker">LOCAL SENSITIVITY</div><h2>Go beyond the obvious.</h2><p>Take your time. Follow the coast. Eat locally. Leave space for the unexpected.</p></div></section>`;
 }
 function concierge(){
- return `<section class="section"><h2>Concierge</h2><p class="sub">Ajuda rápida durante a estadia.</p>
- <div class="list">
- ${row("💬","WhatsApp","Contactar o anfitrião")}
- ${row("📞","Phone","Contactar o anfitrião")}
- ${row("🚑","Emergency","112 · Portugal")}
- ${row("📍","Location","Urbanização Quinta Pedra dos Bicos · Albufeira")}
- </div></section>`;
+ return `<section class="section luxury-page concierge-page"><div class="page-kicker">PERSONAL SERVICE</div><h1>Concierge</h1><p class="sub">How can we make your stay special?</p>
+ <div class="concierge-hero"><div class="page-kicker">TAHYS OURA</div><h2>Just ask.</h2><p>For a restaurant, transfer, local recommendation or something unexpected, we're here to help.</p></div>
+ <div class="concierge-actions">
+  <button onclick="toast('WhatsApp will open when the host number is connected.')"><span>◌</span><strong>WhatsApp</strong><small>Message your host</small></button>
+  <button onclick="toast('Phone number will be connected.')"><span>⌕</span><strong>Call</strong><small>Speak with your host</small></button>
+  <button onclick="go('activities')"><span>✦</span><strong>Experiences</strong><small>Find something special</small></button>
+  <button onclick="go('restaurants')"><span>◒</span><strong>Restaurant</strong><small>Find a table</small></button>
+ </div>
+ <div class="box"><h3>Emergency</h3><p>Portugal · <b>112</b><br>Urbanização Quinta Pedra dos Bicos · Albufeira</p></div>
+ </section>`;
 }
 function login(){if(document.getElementById("code").value==="1234"){S.private=true;go("stay")}else toast("Código incorrecto. Use 1234 na demonstração.");}
 function toast(m){const t=document.getElementById("toast");t.textContent=m;t.style.display="block";setTimeout(()=>t.style.display="none",2400);}
@@ -328,6 +322,7 @@ const routes={
  wifi:()=>privatePage("Wi‑Fi & Apartment Guide","📶",`<div class="box"><h3>Apartment guide</h3><p>Na V2 vamos inserir o nome da rede Wi‑Fi, palavra-passe, Smart TV, ar condicionado, máquina de lavar, máquina de loiça e restantes instruções.</p></div>`)
 };
 function render(){
+ document.querySelector(".app").classList.toggle("home-mode",S.r==="home");
  const f=routes[S.r]||home;
  document.getElementById("content").innerHTML=f();
  const names={home:"Guest Concierge",stay:"My Stay",restaurants:"Eat & Drink",discover:"Discover",beaches:"Beaches",activities:"Activities",supermarkets:"Supermarkets",concierge:"Concierge"};
