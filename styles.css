@@ -49,3 +49,5 @@
 .michelin-mark{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;background:#e30613;color:#fff;font-size:8px}
 .michelin-word{color:#e30613}
 .michelin-stars{color:#e30613;letter-spacing:1px;font-size:12px}
+
+.restaurant-links .mini-link{display:inline-flex;align-items:center;gap:4px}
