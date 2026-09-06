@@ -92,15 +92,7 @@ function home(){
  ${card("🌅","Sunset","O Algarve tem alguns dos mais bonitos sunsets da costa portuguesa.","discoveryPublic")}
  ${card("🍴","Gastronomy","Conheça a riqueza da gastronomia tradicional portuguesa.","discoveryPublic")}
  </div></section>
- <section class="section"><h2>At a glance</h2>
- <div class="list">
- ${row("🏊","Pool Access","Acesso à piscina · pulseira RFID · máximo 6 hóspedes","poolAccess")}
- ${row("🏖️","Beach Access","Praia da Oura Leste · 350 m · cerca de 5 minutos a pé","beachAccess")}
- ${row("🌊","Praia da Oura Leste","Aproximadamente 150 m","beaches")}
- ${row("🛒","Intermarché","Aproximadamente 100 m","supermarkets")}
- ${row("🛒","Aldi","Aproximadamente 400 m","supermarkets")}
- ${row("🌙","Oura Strip","Aproximadamente 200 m","discoveryPublic")}
- </div></section>`;
+`;
 }
 function discoveryPublic(){
  const items=[
@@ -214,6 +206,8 @@ function stay(){
  ${row("🔑","Keycard & Access","Entrada no edifício e apartamento","access")}
  ${row("🛡️","Security","Contactos de segurança e emergência","security")}
  ${row("📶","Wi‑Fi & Apartment Guide","Internet e equipamentos","wifi")}
+ ${row("🏊","Pool Access","Acesso à piscina · pulseira RFID · máximo 6 hóspedes","poolAccess")}
+ ${row("🏖️","Beach Access","Praia da Oura Leste · 350 m · cerca de 5 minutos a pé","beachAccess")}
  </div></section>`;
 }
 function poolAccess(){
@@ -412,6 +406,46 @@ const routes={
  wifi:()=>privatePage("Wi‑Fi & Apartment Guide","📶",`<div class="box"><h3>Apartment guide</h3><p>Na V2 vamos inserir o nome da rede Wi‑Fi, palavra-passe, Smart TV, ar condicionado, máquina de lavar, máquina de loiça e restantes instruções.</p></div>`),
  sleep:()=>privatePage("Sleep Hours","🌙",`<div class="box"><h3>Quiet Hours · 23:00–07:00</h3><p>Para respeitar o descanso dos vizinhos, pedimos que mantenha o silêncio e evite música, festas, conversas em voz alta e outros ruídos que possam causar incómodo entre as 23:00 e as 07:00. Este período corresponde ao período noturno definido no Regulamento Geral do Ruído.</p></div>`)
 };
+function welcomeAmenities(){
+ const groups=[
+  {title:"Amenities de WC",icon:"🛁",items:[
+   {icon:"🧴",name:"Shampoo Bulgari · 300 ml",desc:"Dispensador de 300 ml com shampoo Bulgari."},
+   {icon:"🧼",name:"Sabonete líquido Bulgari · 300 ml",desc:"Dispensador de 300 ml com sabonete líquido Bulgari."},
+   {icon:"🧴",name:"Amaciador de cabelo Bulgari · 300 ml",desc:"Dispensador de 300 ml com amaciador de cabelo Bulgari."},
+   {icon:"🧴",name:"Creme corporal Bulgari · 300 ml",desc:"Dispensador de 300 ml com creme corporal Bulgari."},
+   {icon:"🪥",name:"Escova de dentes de bambu",desc:"Escova de dentes de bambu disponibilizada aos hóspedes."},
+   {icon:"🦷",name:"Pasta de dentes",desc:"Pasta de dentes disponibilizada aos hóspedes."},
+   {icon:"🌿",name:"Aloe Vera · 200 ml",desc:"Aloe Vera em embalagem de 200 ml."},
+   {icon:"🧻",name:"Papel higiénico",desc:"Papel higiénico disponibilizado na casa de banho."}
+  ]},
+  {title:"Welcome Amenities",icon:"✨",items:[
+   {icon:"☕",name:"Nespresso",desc:"São oferecidas cápsulas de café Nespresso. O cliente pode escolher o seu sabor preferido."},
+   {icon:"🍵",name:"Dammann Frères",desc:"São oferecidos diversos tipos de chá Dammann Frères. O cliente pode escolher o seu preferido."},
+   {icon:"🥛",name:"Nesquik",desc:"Saquetas individuais de Nesquik para preparar uma bebida de chocolate."},
+   {icon:"💧",name:"Água",desc:"Água disponível para os hóspedes à chegada."},
+   {icon:"🍬",name:"Açúcar",desc:"Açúcar disponibilizado para café e chá."},
+   {icon:"🍽️",name:"Pastilhas para máquina de lavar loiça",desc:"Pastilhas individuais para utilização na máquina de lavar loiça."},
+   {icon:"🧺",name:"Pastilhas para máquina de lavar roupa",desc:"Pastilhas para utilização na máquina de lavar roupa."},
+   {icon:"🧴",name:"Detergente manual",desc:"Detergente para lavagem manual da loiça."},
+   {icon:"💅",name:"Salva-unhas",desc:"Esponja salva-unhas para limpeza manual."},
+   {icon:"🗑️",name:"Sacos do lixo",desc:"Sacos do lixo disponibilizados para utilização no apartamento."},
+   {icon:"☂️",name:"Chapéu de sol",desc:"Chapéu de sol disponível para utilização durante a estadia."},
+   {icon:"🏖️",name:"Toalha de praia",desc:"Toalha de praia disponibilizada aos hóspedes."},
+   {icon:"👜",name:"Saco de praia",desc:"Saco de praia para utilização durante a estadia."}
+  ]}
+ ];
+ return `<section class="section"><button class="back" onclick="go('stay')">← My Stay</button>
+ <h2>Welcome Amenities</h2>
+ <p class="sub">Tudo o que preparámos para tornar a sua chegada mais confortável.</p>
+ ${groups.map((g,i)=>`<div class="amenity-group ${i===0?'wc-group':''}">
+   <div class="amenity-group-title"><span>${g.icon}</span><div><h3>${g.title}</h3><p>${i===0?'Cuidados e produtos disponíveis na casa de banho.':'Pequenos detalhes preparados para a sua estadia.'}</p></div></div>
+   <div class="amenities-grid">${g.items.map(a=>`<div class="amenity-card">
+    <div class="amenity-image">${a.icon}</div>
+    <div class="amenity-body"><h3>${a.name}</h3><p>${a.desc}</p></div>
+   </div>`).join("")}</div>
+ </div>`).join("")}
+ </section>`;
+}
 function render(){
  const f=routes[S.r]||home;
  document.getElementById("content").innerHTML=f();
