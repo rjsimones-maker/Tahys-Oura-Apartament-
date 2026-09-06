@@ -15,6 +15,7 @@ const restaurantData=[
 const beachData=[
   {
     name:"Praia da Oura Leste",dist:"150 m",
+    maps:"https://www.google.com/maps/search/?api=1&query=Praia+da+Oura+Leste+Albufeira",
     desc:"A praia mais próxima do apartamento, com acesso por rampa ou escadas.",
     image:"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/2017-03-31_Praia_da_Oura%2C_Albufeira_%281%29.JPG/960px-2017-03-31_Praia_da_Oura%2C_Albufeira_%281%29.JPG",
     credit:"Foto: Kolforn / Wikimedia Commons · CC BY-SA 4.0",
@@ -23,6 +24,7 @@ const beachData=[
   },
   {
     name:"Praia de Santa Eulália",dist:"800 m",
+    maps:"https://www.google.com/maps/search/?api=1&query=Praia+de+Santa+Eulalia+Albufeira",
     desc:"Praia de areia dourada, com restaurantes e esplanadas junto ao mar.",
     image:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/2017-02-18_Praia_de_Santa_Eul%C3%A1lia%2C_Albufeira.JPG/960px-2017-02-18_Praia_de_Santa_Eul%C3%A1lia%2C_Albufeira.JPG",
     credit:"Foto: Kolforn / Wikimedia Commons · CC BY-SA 4.0",
@@ -31,11 +33,58 @@ const beachData=[
   },
   {
     name:"Praia de Albufeira",dist:"1,2 km",
+    maps:"https://www.google.com/maps/search/?api=1&query=Praia+dos+Pescadores+Albufeira",
     desc:"A zona da Praia dos Pescadores, no centro de Albufeira, com grande oferta de restaurantes.",
     image:"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Praia_dos_Pescadores_-_Albufeira_-_Portugal_%284572546342%29.jpg/960px-Praia_dos_Pescadores_-_Albufeira_-_Portugal_%284572546342%29.jpg",
     credit:"Foto: Vitor Oliveira / Wikimedia Commons · CC BY-SA 2.0",
     creditUrl:"https://commons.wikimedia.org/wiki/File:Praia_dos_Pescadores_-_Albufeira_-_Portugal_(4572546342).jpg",
     restaurants:["Cabana Fresca","Sal & Mar","Louisiana Restaurante & Bar"]
+  },
+  {
+    name:"Praia Dona Ana",dist:"≈ 40 km",
+    maps:"https://www.google.com/maps/search/?api=1&query=Praia+Dona+Ana+Lagos+Portugal",
+    desc:"Uma das praias mais emblemáticas de Lagos, enquadrada por falésias douradas e águas cristalinas.",
+    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Praia_Dona_Ana_-_Lagos_-_Portugal_%2851197057778%29.jpg/960px-Praia_Dona_Ana_-_Lagos_-_Portugal_%2851197057778%29.jpg",
+    credit:"Dona Ana · Lagos",
+    creditUrl:"https://www.google.com/maps/search/?api=1&query=Praia+Dona+Ana+Lagos+Portugal",
+    restaurants:[]
+  },
+  {
+    name:"Praia do Camilo",dist:"≈ 41 km",
+    maps:"https://www.google.com/maps/search/?api=1&query=Praia+do+Camilo+Lagos+Portugal",
+    desc:"Pequena enseada de Lagos, famosa pelas falésias, águas transparentes e acesso por escadaria.",
+    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Praia_do_Camilo_Lagos_Portugal.jpg/960px-Praia_do_Camilo_Lagos_Portugal.jpg",
+    credit:"Praia do Camilo · Lagos",
+    creditUrl:"https://www.google.com/maps/search/?api=1&query=Praia+do+Camilo+Lagos+Portugal",
+    restaurants:[]
+  },
+  {
+    name:"Praia da Marinha",dist:"≈ 45 km",
+    maps:"https://www.google.com/maps/search/?api=1&query=Praia+da+Marinha+Lagoa+Portugal",
+    desc:"Uma das paisagens costeiras mais reconhecidas do Algarve, com falésias calcárias e águas azul-turquesa.",
+    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Praia_da_Marinha_-_Algarve_-_Portugal_%2835248503130%29.jpg/960px-Praia_da_Marinha_-_Algarve_-_Portugal_%2835248503130%29.jpg",
+    credit:"Praia da Marinha · Lagoa",
+    creditUrl:"https://www.google.com/maps/search/?api=1&query=Praia+da+Marinha+Lagoa+Portugal",
+    restaurants:[]
+  },
+  {
+    name:"Prainha · Alvor",dist:"≈ 40 km",
+    maps:"https://www.google.com/maps/search/?api=1&query=Prainha+Alvor+Algarve+Portugal",
+    desc:"Pequenas praias encaixadas nas falésias junto a Alvor, com um ambiente mais reservado.",
+    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Praia_da_Prainha_Alvor.jpg/960px-Praia_da_Prainha_Alvor.jpg",
+    credit:"Prainha · Alvor",
+    creditUrl:"https://www.google.com/maps/search/?api=1&query=Prainha+Alvor+Algarve+Portugal",
+    restaurants:[]
+  },
+  {
+    name:"Praia da Falésia",dist:"≈ 12 km",
+    maps:"https://www.google.com/maps/search/?api=1&query=Praia+da+Falesia+Olhos+de+Agua+Portugal",
+    award:"TRIPADVISOR · BEST OF THE BEST 2024 · #1 WORLD",
+    desc:"Extensa praia de areia dourada e falésias vermelhas. Foi eleita pelo Tripadvisor como a melhor praia do mundo em 2024.",
+    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Praia_da_Falesia_Albufeira.jpg/960px-Praia_da_Falesia_Albufeira.jpg",
+    credit:"Praia da Falésia · Algarve",
+    creditUrl:"https://www.tripadvisor.com/TravelersChoice-Beaches",
+    restaurants:[]
   }
 ];
 
@@ -60,24 +109,27 @@ function card(icon,title,text,route){
 }
 function home(){
  return `
- <section class="lux-home">
-   <div class="lux-hero-content">
-     <div class="lux-kicker">ALBUFEIRA · ALGARVE</div>
-     <h1>Tahys Oura</h1>
-     <div class="lux-rule"></div>
-     <p class="lux-lead">A private home by the Atlantic.</p>
-     <p class="lux-intro">Quinta Pedra dos Bicos · Praia da Oura</p>
-     <button class="lux-cta" onclick="go('apartment')">EXPLORE YOUR STAY <span>→</span></button>
-   </div>
-
-   <div class="lux-bottom">
-     <button onclick="go('apartment')"><span>01</span>The Apartment</button>
-     <button onclick="go('stay')"><span>02</span>My Stay</button>
-     <button onclick="go('discover')"><span>03</span>Discover Algarve</button>
-   </div>
-
-   <div class="lux-scroll">SCROLL TO EXPLORE <span>↓</span></div>
- </section>`;
+ <div class="hero"><span class="eyebrow">ALBUFEIRA · ALGARVE</span>
+ <h1>Tahys Oura<br>Apartment</h1>
+ <p>Seu guia privado para uma estadia especial no Algarve.</p></div>
+ <section class="section">
+ <h2>Welcome</h2>
+ <p class="sub">Bem-vindo ao Tahys Oura Apartment. O apartamento está situado na Urbanização Quinta Pedra dos Bicos, em frente à Praia da Oura, com vista mar e a poucos minutos a pé das principais praias e serviços.</p>
+ <div class="grid">
+ ${card("🏠","The Apartment","90 m² · 2 quartos · 6 hóspedes · vista mar","apartment")}
+ ${card("♧","My Stay","Tudo o que precisa antes e durante a estadia.","stay")}
+ ${card("🍽️","Eat & Drink","Restaurantes por cozinha, preço e distância.","restaurants")}
+ ${card("🏖️","Beaches","Praias com fotografia e restaurantes de praia.","beaches")}
+ ${card("🗺️","Discover","Locais a visitar em Albufeira e no Algarve.","discover")}
+ ${card("🎯","Activities","Experiências para famílias, casais e aventura.","activities")}
+ </div></section>
+ <section class="section"><h2>At a glance</h2>
+ <div class="list">
+ ${row("🌊","Praia da Oura Leste","Aproximadamente 150 m","beaches")}
+ ${row("🛒","Intermarché","Aproximadamente 100 m","supermarkets")}
+ ${row("🛒","Aldi","Aproximadamente 400 m","supermarkets")}
+ ${row("🌙","Oura Strip","Aproximadamente 200 m","discover")}
+ </div></section>`;
 }
 function apartment(){
  const photos={
@@ -216,10 +268,14 @@ function beaches(){
  .beach-rest p{margin:4px 0 0;font-size:13px;opacity:.8}
  </style>
  ${beachData.map(x=>`<article class="beach-card">
-   <img class="beach-img" src="${x.image}" alt="${x.name}" loading="lazy" onerror="this.style.display='none'">
+   <div class="beach-photo-wrap">
+     <img class="beach-img" src="${x.image}" alt="${x.name}" loading="lazy" onerror="this.style.display='none'">
+     ${x.award?`<div class="beach-award" title="${x.award}">🏆<span>${x.award}</span></div>`:""}
+   </div>
    <div class="beach-body">
      <h3>${x.name}</h3>
      <div class="beach-meta">${x.dist}</div>
+     <a class="beach-maps" href="${x.maps}" target="_blank" rel="noopener" onclick="event.stopPropagation()">📍 Ver no Google Maps <span>↗</span></a>
      <p>${x.desc}</p>
      <div class="beach-rest-title">🍽️ Restaurantes de praia</div>
      ${x.restaurants.map(beachRestaurantCard).join("")}
