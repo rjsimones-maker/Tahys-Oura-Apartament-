@@ -87,3 +87,27 @@
 .tea-official{display:block;margin-top:18px;text-align:center;font-size:11px;font-weight:700;text-decoration:none;opacity:.7}
 .tea-mini-sachet{width:54px;height:78px;border-radius:7px 7px 9px 9px;background:linear-gradient(180deg,#f5f0e5,#e4d9c4);border:1px solid rgba(0,0,0,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 6px 10px rgba(0,0,0,.12);font-size:7px;letter-spacing:.12em}.tea-mini-sachet b{font-family:serif;font-size:9px;letter-spacing:0}
 @media(max-width:520px){.tea-grid{grid-template-columns:1fr 1fr}.tea-sachet-wrap{height:175px}.tea-sachet-wrap img{height:160px}.tea-detail-img{height:270px}}
+
+/* V2.9 · Luxury landing page inspired by resort-style presentation */
+body.home-mode{background:#07171a;overflow-x:hidden}
+body.home-mode .app{max-width:none;width:100%;min-height:100vh;padding-bottom:0;background:transparent;box-shadow:none}
+body.home-mode .header,body.home-mode .nav{display:none}
+.home-hero{position:relative;min-height:100vh;height:100svh;overflow:hidden;color:#fff;display:flex;align-items:center;justify-content:center}
+.home-topbar{position:absolute;top:0;left:0;right:0;z-index:15;height:92px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px clamp(18px,4vw,54px);background:linear-gradient(180deg,rgba(0,0,0,.28),transparent)}
+.hamburger{width:48px;height:48px;border:1px solid rgba(255,255,255,.42);border-radius:50%;background:rgba(0,0,0,.18);backdrop-filter:blur(8px);display:flex;flex-direction:column;justify-content:center;gap:5px;padding:0 14px;cursor:pointer}
+.hamburger i{display:block;height:1.5px;background:#fff;width:20px}
+.home-logo{width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 3px 8px rgba(0,0,0,.25))}
+.home-actions{justify-self:end;display:flex;align-items:center;gap:10px}
+.lang-toggle,.booking-btn{height:42px;border-radius:22px;border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.18);backdrop-filter:blur(8px);color:#fff;padding:0 15px;text-decoration:none;font-size:11px;letter-spacing:.08em;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.lang-toggle{gap:6px;cursor:pointer}.lang-toggle em{font-style:normal;opacity:.5}.lang-toggle span{opacity:.55}.lang-toggle span.active{opacity:1}
+.booking-btn{background:#fff;color:#17333a;border-color:#fff;min-width:92px}
+.home-center{text-align:center;position:relative;z-index:4;margin-top:3vh;padding:24px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.home-center-logo{width:92px;height:92px;margin-bottom:22px;filter:drop-shadow(0 5px 14px rgba(0,0,0,.3))}
+.home-kicker{font-size:10px;letter-spacing:.34em;margin-left:.34em;margin-bottom:12px;opacity:.9}
+.home-center h1{font:500 clamp(36px,7vw,68px)/1.05 Georgia,serif;margin:0 0 12px}
+.home-center p{font-size:13px;letter-spacing:.08em;opacity:.92;margin:0}
+.menu-overlay{position:fixed;inset:0;z-index:100;visibility:hidden;pointer-events:none}.menu-overlay.open{visibility:visible;pointer-events:auto}
+.menu-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.46);opacity:0;transition:opacity .28s}.menu-overlay.open .menu-backdrop{opacity:1}
+.side-menu{position:absolute;left:0;top:0;bottom:0;width:min(360px,88vw);background:#f6f2e9;color:#17333a;padding:28px 24px;transform:translateX(-100%);transition:transform .3s ease;box-shadow:18px 0 50px rgba(0,0,0,.18)}.menu-overlay.open .side-menu{transform:translateX(0)}
+.menu-close{position:absolute;right:18px;top:18px;border:0;background:none;font-size:30px;color:#17333a;cursor:pointer}.menu-brand{display:flex;align-items:center;gap:12px;margin:8px 0 52px;font-size:11px;letter-spacing:.22em}.menu-brand img{width:42px;height:42px}.side-links{display:grid;gap:8px}.side-links button{border:0;background:transparent;text-align:left;padding:17px 10px;border-radius:13px;display:flex;align-items:center;gap:16px;color:#17333a;cursor:pointer}.side-links button:hover{background:#ebe5d9}.side-links span{width:28px;font-size:21px;text-align:center}.side-links b{font:500 24px Georgia,serif}
+@media(max-width:520px){.home-topbar{height:78px;padding:13px 14px}.hamburger{width:43px;height:43px}.home-logo{width:45px;height:45px}.lang-toggle{padding:0 11px}.booking-btn{min-width:78px;padding:0 12px}.home-center-logo{width:76px;height:76px}.home-center h1{font-size:39px}.home-center p{font-size:11px}.side-menu{width:86vw}}

@@ -32,3 +32,12 @@ Conteúdo público do anúncio Airbnb do Tahys Oura Apartment, incluindo caracte
 - notificações
 - analytics
 - publicação HTTPS / domínio
+
+## V2.9 Landing page
+- Full-screen background video on the home page, with baked-in title area removed by cropping the top of the source video.
+- Centered Tahys Oura logo.
+- Left hamburger menu opening Apartment / My Stay / Discover.
+- PT/EN language toggle on the landing page.
+- Booking button linking to the official Airbnb listing.
+- Existing sub-sections remain unchanged.
+- Ocean Restaurant · Vila Vita Parc appears in both Michelin and Portuguese restaurant filters.

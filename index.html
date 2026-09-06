@@ -11,7 +11,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon.svg">
-<link rel="stylesheet" href="styles.css?v=2.8">
+<link rel="stylesheet" href="styles.css?v=2.9">
 <title>Tahys Oura</title>
 </head>
 <body>
@@ -22,6 +22,18 @@
 <div class="head-copy"><div class="over">TAHYS OURA</div><div id="title">Guest Concierge</div></div>
 <button id="home" class="round">⌂</button>
 </header>
+<div id="menu-overlay" class="menu-overlay" aria-hidden="true">
+  <div class="menu-backdrop" onclick="closeMenu()"></div>
+  <aside class="side-menu">
+    <button class="menu-close" onclick="closeMenu()" aria-label="Close">×</button>
+    <div class="menu-brand"><img src="icon.svg" alt="Tahys Oura"><span>TAHYS OURA</span></div>
+    <nav class="side-links">
+      <button onclick="closeMenu();go('apartment')"><span>⌂</span><b data-i18n="menuApartment">Apartment</b></button>
+      <button onclick="closeMenu();go('stay')"><span>♧</span><b data-i18n="menuStay">My Stay</b></button>
+      <button onclick="closeMenu();go('discoveryPublic')"><span>✦</span><b data-i18n="menuDiscover">Discover</b></button>
+    </nav>
+  </aside>
+</div>
 <main id="content"></main>
 <div id="hero-bg" aria-hidden="true"><video class="hero-video" autoplay muted loop playsinline preload="auto"><source src="hero-video.mp4" type="video/mp4"></video><div class="hero-shade"></div></div>
 <nav class="nav">
@@ -31,6 +43,6 @@
 </nav>
 </div>
 <div id="toast"></div>
-<script src="app.js?v=2.8"></script>
+<script src="app.js?v=2.9"></script>
 </body>
 </html>
