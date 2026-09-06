@@ -42,3 +42,10 @@
 .restaurant-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
 .mini-link{display:inline-flex;align-items:center;padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--deep);text-decoration:none;font-size:11px;font-weight:700}
 .mini-link:hover{background:var(--deep);color:#fff}
+
+
+/* MICHELIN Guide badge — v2.0 */
+.michelin-badge{display:inline-flex;align-items:center;gap:7px;margin:3px 0 8px;padding:5px 9px;border:1px solid #e1e1e1;border-radius:7px;background:#fff;font-size:10px;line-height:1;letter-spacing:.05em;font-weight:700}
+.michelin-mark{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;background:#e30613;color:#fff;font-size:8px}
+.michelin-word{color:#e30613}
+.michelin-stars{color:#e30613;letter-spacing:1px;font-size:12px}
