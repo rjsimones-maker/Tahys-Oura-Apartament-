@@ -29,3 +29,10 @@
 .sea-card h3{margin:0 0 6px;font-size:16px}
 .sea-card p{margin:0;font-size:13px;line-height:1.55}
 @media(max-width:520px){.food-grid,.sea-grid{grid-template-columns:1fr}.food-button img{height:155px}}
+
+/* Beach Access */
+.beach-access-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.beach-access-card img{display:block;width:100%;height:auto;max-height:72vh;object-fit:cover}
+.beach-access-copy{padding:18px 18px 20px}
+.beach-access-copy h3{margin:0 0 6px}
+.beach-access-copy p{margin:7px 0}
