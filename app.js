@@ -15,7 +15,7 @@ const restaurantData=[
   {name:"Marisqueira Rui",cat:"Seafood",price:"€€€",dist:20.0,beach:"Silves",desc:"Marisqueira tradicional com peixe, marisco, cataplanas e arroz de marisco.",url:"https://www.google.com/maps/search/?api=1&query=Marisqueira+Rui+Silves",website:"https://marisqueirarui.pt/",review:"https://www.tripadvisor.pt/Restaurant_Review-g189122-d1790785-Reviews-Restaurante_Marisqueira_Rui-Silves_Faro_District_Algarve.html",phone:"+351 282 442 682",instagram:"https://www.instagram.com/marisqueirarui/"},
   {name:"O Márinho",cat:"Portuguese",price:"€",dist:17.0,beach:"Algoz · Algarve",desc:"Churrasqueira portuguesa tradicional, conhecida pelo frango assado à Guia e frango no churrasco.",url:"https://www.google.com/maps/search/?api=1&query=O+Marinho+Algoz+Algarve",review:"https://www.tripadvisor.pt/Restaurant_Review-g2626749-d3746824-Reviews-Restaurante_O_Marinho-Algoz_Faro_District_Algarve.html",phone:"+351 282 574 889"},
   {name:"Restaurante Teodósio",cat:"Portuguese",price:"€€",dist:8.0,beach:"Guia",desc:"Casa tradicional de Guia, conhecida pelo frango à Guia e cozinha portuguesa.",url:"https://www.google.com/maps/search/?api=1&query=Restaurante+Teodosio+Guia+Albufeira",website:"https://www.teodosioreidosfrangos.pt/",review:"https://www.tripadvisor.pt/Restaurant_Review-g775995-d1811542-Reviews-Restaurante_Teodosio-Guia_Albufeira_Faro_District_Algarve.html",phone:"+351 289 561 318"},
-  {name:"Ocean Restaurant · Vila Vita Parc",cat:"Michelin",price:"€€€€",dist:35.0,beach:"Porches · Vila Vita Parc",desc:"Fine dining com vista para o Atlântico, no Vila Vita Parc, com cozinha de Hans Neuner.",url:"https://www.google.com/maps/search/?api=1&query=Ocean+Restaurant+Vila+Vita+Parc+Porches",website:"https://vilavitaparc.com/pt/restaurantesebares/restaurante-ocean",michelinStars:2,phone:"+351 282 310 100",instagram:"https://www.instagram.com/restauranteocean/"},
+  {name:"Ocean Restaurant · Vila Vita Parc",cat:["Michelin","Portuguese"],price:"€€€€",dist:35.0,beach:"Porches · Vila Vita Parc",desc:"Fine dining com vista para o Atlântico, no Vila Vita Parc, com cozinha de Hans Neuner.",url:"https://www.google.com/maps/search/?api=1&query=Ocean+Restaurant+Vila+Vita+Parc+Porches",website:"https://vilavitaparc.com/pt/restaurantesebares/restaurante-ocean",michelinStars:2,phone:"+351 282 310 100",instagram:"https://www.instagram.com/restauranteocean/"},
   {name:"Al Quimia",cat:"Portuguese",price:"€€€€",dist:3.5,beach:"Albufeira",desc:"Restaurante de cozinha portuguesa contemporânea, no centro de Albufeira.",url:"https://www.google.com/maps/search/?api=1&query=Al+Quimia+Albufeira",review:"https://www.tripadvisor.com/Restaurant_Review-g189112-d4218201-Reviews-Al_Quimia-Albufeira_Faro_District_Algarve.html",phone:"+351 289 104 500"},
   {name:"Ristorante Pizzeria La Terrazza Del Mare",cat:"Italian",price:"€€",dist:3.0,beach:"Albufeira",desc:"Pizzaria italiana com pizzas, massas e esplanada com vista para a baía de Albufeira.",url:"https://www.google.com/maps/search/?api=1&query=Ristorante+Pizzeria+La+Terrazza+Del+Mare+Albufeira",website:"https://terrazzadelmare.eatbu.com/?lang=pt",review:"https://www.tripadvisor.pt/Restaurant_Review-g189112-d13335050-Reviews-Ristorante_Pizzeria_La_Terrazza_Del_Mare-Albufeira_Faro_District_Algarve.html",phone:"+351 963 189 556",instagram:"https://www.instagram.com/terrazza_delmare/"},
   {name:"Restaurante Churrasqueira Beirã",cat:"Portuguese",price:"€€",dist:1.0,beach:"Santa Eulália · Albufeira",desc:"Cozinha portuguesa tradicional, grelhados, peixe e marisco, com estacionamento.",url:"https://www.google.com/maps/search/?api=1&query=Restaurante+Churrasqueira+Beira+Albufeira",website:"https://restaurantechurrasqueirabeira.makro.rest/?lang=pt",phone:"+351 289 589 916",instagram:"https://www.instagram.com/churrasqueirabeira_albufeira/"},
@@ -57,6 +57,12 @@ const activityData=[
   {icon:"🐓",name:"Frango da Guia",meta:"8 km",desc:"A zona famosa pelo tradicional frango da Guia."}
 ];
 
+function openMenu(){const m=document.getElementById("menu-overlay");if(m){m.classList.add("open");m.setAttribute("aria-hidden","false");}}
+function closeMenu(){const m=document.getElementById("menu-overlay");if(m){m.classList.remove("open");m.setAttribute("aria-hidden","true");}}
+let LANG=localStorage.getItem("tahysLang")||"pt";
+const I18N={pt:{booking:"Booking",welcome:"WELCOME",tagline:"O seu concierge privado no Algarve",menuApartment:"Apartment",menuStay:"My Stay",menuDiscover:"Discover"},en:{booking:"Booking",welcome:"WELCOME",tagline:"Your private guest concierge in the Algarve",menuApartment:"Apartment",menuStay:"My Stay",menuDiscover:"Discover"}};
+function applyLanguage(){document.documentElement.lang=LANG;const d=I18N[LANG];document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n");if(d[k])el.textContent=d[k]});document.getElementById("langPT")?.classList.toggle("active",LANG==="pt");document.getElementById("langEN")?.classList.toggle("active",LANG==="en");}
+function toggleLanguage(){LANG=LANG==="pt"?"en":"pt";localStorage.setItem("tahysLang",LANG);applyLanguage();}
 function go(route){S.r=route;render();window.scrollTo({top:0,behavior:"smooth"});}
 function row(icon,title,text,route){
   return `<div class="row" ${route?`onclick="go('${route}')"`:""}>
@@ -70,30 +76,24 @@ function card(icon,title,text,route){
 }
 function home(){
  return `
- <div class="hero"><span class="eyebrow">ALBUFEIRA · ALGARVE</span>
- <h1>Tahys Oura<br>Apartment</h1>
- <p>Seu guia privado para uma estadia especial no Algarve.</p></div>
- <section class="section">
- <h2>Welcome</h2>
- <p class="sub">Bem-vindo ao Tahys Oura Apartment. Explore o apartamento, prepare a sua estadia e descubra o Algarve.</p>
- <div class="grid">
- ${card("🏠","My Apartment","Conheça cada espaço do apartamento.","apartment")}
- ${card("♧","My Stay","Serviços, informação e área privada da sua estadia.","stay")}
- ${card("✦","Discovery","Uma introdução às experiências que o Algarve oferece.","discoveryPublic")}
- </div></section>
- <section class="section"><h2>Discovery</h2>
- <p class="sub">Uma breve introdução ao destino. A informação detalhada fica disponível na área privada do cliente.</p>
- <div class="grid">
- ${card("🍽️","Restaurants","Sabores locais, restaurantes e experiências gastronómicas.","discoveryPublic")}
- ${card("🏖️","Beaches","Praias douradas, águas claras e paisagens da costa algarvia.","discoveryPublic")}
- ${card("🌙","Nightlife","Albufeira depois do pôr do sol: bares, música e ambiente.","discoveryPublic")}
- ${card("🎯","Activities","Passeios, parques aquáticos, natureza, mar e aventura.","discoveryPublic")}
- ${card("🗺️","Explore Algarve","Descubra lugares, vilas e paisagens para além de Albufeira.","discoveryPublic")}
- ${card("🌅","Sunset","O Algarve tem alguns dos mais bonitos sunsets da costa portuguesa.","discoveryPublic")}
- ${card("🍴","Gastronomy","Conheça a riqueza da gastronomia tradicional portuguesa.","discoveryPublic")}
- </div></section>
-`;
+ <section class="home-hero">
+   <div class="home-topbar">
+     <button class="hamburger" onclick="openMenu()" aria-label="Menu"><i></i><i></i><i></i></button>
+     <img class="home-logo" src="icon.svg" alt="Tahys Oura Apartment">
+     <div class="home-actions">
+       <button class="lang-toggle" onclick="toggleLanguage()" aria-label="Language"><span id="langPT">PT</span><em>/</em><span id="langEN">EN</span></button>
+       <a class="booking-btn" href="https://www.airbnb.com/rooms/6195745" target="_blank" rel="noopener" data-i18n="booking">Booking</a>
+     </div>
+   </div>
+   <div class="home-center">
+     <img class="home-center-logo" src="icon.svg" alt="Tahys Oura">
+     <div class="home-kicker" data-i18n="welcome">WELCOME</div>
+     <h1>Tahys Oura Apartment</h1>
+     <p data-i18n="tagline">Your private guest concierge in the Algarve</p>
+   </div>
+ </section>`;
 }
+
 function discoveryPublic(){
  const items=[
   ["🍽️","Restaurants","Descubra os sabores do Algarve, desde peixe e marisco fresco a cozinha tradicional e experiências gastronómicas."],
@@ -286,7 +286,7 @@ function restaurants(){ if(!S.private)return stay();
  const isFrangoGuia=S.cat==="Frango Assado à Guia";
  const filtered=isFrangoGuia
    ? restaurantData.filter(x=>frangoGuiaNames.includes(x.name))
-   : restaurantData.filter(x=>(S.cat==="All"||x.cat===S.cat))
+   : restaurantData.filter(x=>(S.cat==="All"||(Array.isArray(x.cat)?x.cat.includes(S.cat):x.cat===S.cat)))
      .filter(x=>S.price==="All"||x.price===S.price)
      .filter(x=>S.dist==="All"||x.dist<=Number(S.dist));
  return `<section class="section"><h2>Eat & Drink</h2><p class="sub">Restaurantes reais seleccionados, por cozinha, preço e distância aproximada.</p>
@@ -301,7 +301,7 @@ function beachRestaurantCard(x){
  const r=restaurantData.find(a=>a.name===x);
  if(!r)return "";
  return `<div class="beach-rest" onclick="window.open('${r.url}','_blank')">
-   <div><strong>${r.name}</strong><span>${r.cat} · ${r.price}</span><p>${r.desc}</p></div><b>↗</b>
+   <div><strong>${r.name}</strong><span>${Array.isArray(r.cat)?r.cat.join(" · "):r.cat} · ${r.price}</span><p>${r.desc}</p></div><b>↗</b>
  </div>`;
 }
 
@@ -491,10 +491,12 @@ function welcomeAmenities(){
  </section>`;
 }
 function render(){
+ document.body.classList.toggle("home-mode",S.r==="home");
  const f=routes[S.r]||home;
  document.getElementById("content").innerHTML=f();
  const names={home:"Guest Concierge",stay:"My Stay",apartment:"My Apartment",discoveryPublic:"Discovery",discoveryPrivate:"Discovery",restaurants:"Restaurants",discover:"Discovery",beaches:"Beaches",activities:"Activities",supermarkets:"Supermarkets",concierge:"Concierge",pharmacy:"Pharmacy",nightlife:"Nightlife",exploreAlgarve:"Explore Algarve",sunset:"Sunset",gastronomy:"Gastronomy"};
  document.getElementById("title").textContent=names[S.r]||"Tahys Oura";
+ applyLanguage();
  document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.r===S.r||((S.r!=="home")&&["stay","discoveryPublic","discoveryPrivate","restaurants","beaches","activities","supermarkets","pharmacy","nightlife","exploreAlgarve","sunset","gastronomy","transfer","amenities","pillows","registration","tax","sleep","access","security","wifi"].includes(S.r)&&b.dataset.r==="stay")||(["apartment"].includes(S.r)&&b.dataset.r==="apartment")));
 }
 document.getElementById("home").onclick=()=>go("home");
