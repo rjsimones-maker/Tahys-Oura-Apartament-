@@ -1,0 +1,11 @@
+UPLOAD MANUAL GITHUB - TAHYS OURA V3.2
+
+Substituir/adicionar estes 6 ficheiros na raiz do branch main:
+1. index.html
+2. styles.css
+3. landing-v3.css
+4. app.js
+5. sw.js
+6. logo-tahys.png
+
+Depois fazer Commit changes para main.
