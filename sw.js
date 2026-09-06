@@ -1,4 +1,4 @@
-const CACHE="tahys-v1.9";
+const CACHE="tahys-v1.9.1";
 const ASSETS=[
   "./",
   "./index.html",
