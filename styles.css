@@ -36,3 +36,9 @@
 .beach-access-copy{padding:18px 18px 20px}
 .beach-access-copy h3{margin:0 0 6px}
 .beach-access-copy p{margin:7px 0}
+
+/* Restaurant private recommendations */
+.restaurant-row{align-items:flex-start}
+.restaurant-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.mini-link{display:inline-flex;align-items:center;padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--deep);text-decoration:none;font-size:11px;font-weight:700}
+.mini-link:hover{background:var(--deep);color:#fff}
