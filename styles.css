@@ -1,4 +1,4 @@
-.hero-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;pointer-events:none}.hero-shade{position:fixed;inset:0;background:rgba(0,0,0,.24);z-index:-2;pointer-events:none}.app{position:relative;z-index:1;background:transparent}body{background:#081b20}
+.hero-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;pointer-events:none}.hero-shade{position:fixed;inset:0;background:rgba(0,0,0,.18);z-index:-2;pointer-events:none}.app{position:relative;z-index:1;background:transparent}body{background:#081b20}
 :root{--deep:#0b3942;--ink:#17333a;--muted:#6c7d81;--cream:#f6f2e9;--paper:#fff;--gold:#c9a66b;--line:#e6e0d4;--shadow:0 12px 34px #17333a14}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#e9e5dc;color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}
 .app{max-width:560px;min-height:100vh;margin:auto;background:var(--cream);padding-bottom:82px;box-shadow:0 0 50px #00000012}
@@ -13,3 +13,127 @@
 .splash{position:fixed;inset:0;background:var(--deep);z-index:100;display:none;align-items:center;justify-content:center;flex-direction:column;color:#fff}.brandmark{width:72px;height:72px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;font:50px Georgia;color:#fff}.splash-title{margin-top:15px;letter-spacing:4px;font-size:13px}.splash-sub{margin-top:7px;color:#d7c49e;font-size:11px}
 #toast{position:fixed;z-index:60;bottom:92px;left:50%;transform:translateX(-50%);background:var(--deep);color:#fff;padding:11px 14px;border-radius:12px;font-size:11px;display:none;max-width:90%}
 @media(min-width:700px){body{padding:20px}.app{border-radius:25px;overflow:hidden}.header{position:relative}}
+
+
+/* Tahys Oura — luxury landing page */
+.lux-home{
+  min-height:calc(100vh - 70px);
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:70px 28px 105px;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(5,19,23,.08) 0%,rgba(5,19,23,.16) 38%,rgba(5,19,23,.68) 100%);
+}
+.lux-home:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 42%,rgba(255,255,255,.08),transparent 38%);
+  pointer-events:none;
+}
+.lux-hero-content{position:relative;z-index:2;max-width:520px;margin-top:-20px}
+.lux-kicker{
+  font-size:10px;
+  letter-spacing:4px;
+  font-weight:500;
+  opacity:.86;
+  margin-bottom:25px;
+}
+.lux-home h1{
+  font:400 clamp(48px,12vw,76px)/.95 Georgia,"Times New Roman",serif;
+  letter-spacing:-1.8px;
+  margin:0;
+  text-shadow:0 2px 24px rgba(0,0,0,.25);
+}
+.lux-rule{
+  width:54px;
+  height:1px;
+  background:var(--gold);
+  margin:25px auto 21px;
+  opacity:.9;
+}
+.lux-lead{
+  font:400 19px/1.35 Georgia,"Times New Roman",serif;
+  margin:0 0 8px;
+  letter-spacing:.2px;
+}
+.lux-intro{
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  opacity:.72;
+  margin:0 0 31px;
+}
+.lux-cta{
+  border:1px solid rgba(255,255,255,.58);
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);
+  color:#fff;
+  border-radius:0;
+  padding:13px 18px 13px 20px;
+  font-size:10px;
+  letter-spacing:2px;
+  cursor:pointer;
+  transition:all .25s ease;
+}
+.lux-cta span{font-size:15px;margin-left:14px;vertical-align:-1px}
+.lux-cta:hover{background:rgba(255,255,255,.17);border-color:#fff;transform:translateY(-1px)}
+.lux-bottom{
+  position:absolute;
+  z-index:3;
+  left:22px;
+  right:22px;
+  bottom:31px;
+  display:flex;
+  justify-content:center;
+  gap:0;
+  border-top:1px solid rgba(255,255,255,.28);
+  padding-top:16px;
+}
+.lux-bottom button{
+  flex:1;
+  max-width:170px;
+  border:0;
+  border-right:1px solid rgba(255,255,255,.24);
+  background:transparent;
+  color:#fff;
+  padding:2px 12px;
+  font-size:10px;
+  letter-spacing:1px;
+  cursor:pointer;
+  text-align:left;
+  opacity:.9;
+}
+.lux-bottom button:last-child{border-right:0}
+.lux-bottom button span{
+  display:block;
+  color:#d8bf8f;
+  font-size:9px;
+  letter-spacing:2px;
+  margin-bottom:6px;
+}
+.lux-scroll{
+  position:absolute;
+  right:15px;
+  top:50%;
+  z-index:3;
+  writing-mode:vertical-rl;
+  font-size:8px;
+  letter-spacing:2px;
+  opacity:.58;
+}
+.lux-scroll span{font-size:14px;margin-top:8px}
+@media(max-width:520px){
+  .lux-home{min-height:calc(100vh - 70px);padding-left:20px;padding-right:20px}
+  .lux-home h1{font-size:52px}
+  .lux-lead{font-size:17px}
+  .lux-bottom{left:12px;right:12px}
+  .lux-bottom button{padding-left:7px;padding-right:7px;font-size:9px}
+  .lux-scroll{display:none}
+}
