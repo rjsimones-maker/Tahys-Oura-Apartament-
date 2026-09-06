@@ -19,3 +19,18 @@ body.home-mode .home-center{display:none!important}
 /* V3.1 — neutral champagne background for inner sections */
 body:not(.home-mode){background:#e8dfce}
 body:not(.home-mode) .app{background:#e8dfce}
+
+/* V3.2 — Tahys Apartments identity */
+:root{
+  --tahys-charcoal:#414342;
+  --tahys-gold:#9e9672;
+  --tahys-soft:#f5f3ee;
+}
+.home-logo,.menu-brand img{object-fit:contain}
+.home-logo{width:116px;height:64px}
+.menu-brand img{width:96px;height:58px}
+body:not(.home-mode) .section-title,
+body:not(.home-mode) .card-title,
+body:not(.home-mode) h1,
+body:not(.home-mode) h2{font-family:Montserrat,"Avenir Next",Century Gothic,Arial,sans-serif;color:var(--tahys-charcoal)}
+body:not(.home-mode) .section-title::after{background:var(--tahys-gold)}

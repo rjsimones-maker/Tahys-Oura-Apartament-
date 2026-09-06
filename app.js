@@ -79,14 +79,14 @@ function home(){
  <section class="home-hero">
    <div class="home-topbar">
      <button class="hamburger" onclick="openMenu()" aria-label="Menu"><i></i><i></i><i></i></button>
-     <img class="home-logo" src="icon.svg" alt="Tahys Oura Apartment">
+     <img class="home-logo" src="logo-tahys.png" alt="Tahys Oura Apartment">
      <div class="home-actions">
        <button class="lang-toggle" onclick="toggleLanguage()" aria-label="Language"><span id="langPT">PT</span><em>/</em><span id="langEN">EN</span></button>
        <a class="booking-btn" href="https://www.airbnb.com/rooms/6195745" target="_blank" rel="noopener" data-i18n="booking">Booking</a>
      </div>
    </div>
    <div class="home-center">
-     <img class="home-center-logo" src="icon.svg" alt="Tahys Oura">
+     <img class="home-center-logo" src="logo-tahys.png" alt="Tahys Oura">
      <div class="home-kicker" data-i18n="welcome">WELCOME</div>
      <h1>Tahys Oura Apartment</h1>
      <p data-i18n="tagline">Your private guest concierge in the Algarve</p>

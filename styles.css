@@ -1,6 +1,6 @@
 .hero-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;pointer-events:none}.hero-shade{position:fixed;inset:0;background:rgba(0,0,0,.24);z-index:-2;pointer-events:none}.app{position:relative;z-index:1;background:transparent}body{background:#081b20}
-:root{--deep:#0b3942;--ink:#17333a;--muted:#6c7d81;--cream:#f6f2e9;--paper:#fff;--gold:#c9a66b;--line:#e6e0d4;--shadow:0 12px 34px #17333a14}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#e9e5dc;color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}
+:root{--deep:#414342;--ink:#414342;--muted:#777873;--cream:#f5f3ee;--paper:#fff;--gold:#9e9672;--line:#e6e0d4;--shadow:0 12px 34px #41434214}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#e9e5dc;color:var(--ink);font-family:Montserrat,"Avenir Next",Century Gothic,Arial,sans-serif}button,input,select{font:inherit}
 .app{max-width:560px;min-height:100vh;margin:auto;background:var(--cream);padding-bottom:82px;box-shadow:0 0 50px #00000012}
 .header{height:70px;background:var(--deep);color:#fff;display:flex;align-items:center;gap:12px;padding:0 16px;position:sticky;top:0;z-index:20}.round{width:38px;height:38px;border-radius:50%;border:0;background:#ffffff18;color:#fff;font-size:26px}.head-copy{flex:1}.over{font-size:9px;letter-spacing:2.3px;opacity:.6}.head-copy>div:last-child{font-size:15px;font-weight:650}
 .hero{min-height:400px;padding:24px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:linear-gradient(180deg,#0b394200 22%,#0b3942e8),url("hero.svg") center/cover}.hero h1{font:500 40px/1.02 Georgia,serif;margin:10px 0 6px}.hero p{margin:0 0 4px;opacity:.9}.eyebrow{display:inline-block;width:max-content;padding:8px 11px;border-radius:99px;background:#ffffff18;border:1px solid #ffffff30;font-size:10px;letter-spacing:1px}
@@ -100,7 +100,7 @@ body.home-mode .header,body.home-mode .nav{display:none}
 .home-actions{justify-self:end;display:flex;align-items:center;gap:10px}
 .lang-toggle,.booking-btn{height:42px;border-radius:22px;border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.18);backdrop-filter:blur(8px);color:#fff;padding:0 15px;text-decoration:none;font-size:11px;letter-spacing:.08em;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
 .lang-toggle{gap:6px;cursor:pointer}.lang-toggle em{font-style:normal;opacity:.5}.lang-toggle span{opacity:.55}.lang-toggle span.active{opacity:1}
-.booking-btn{background:#fff;color:#17333a;border-color:#fff;min-width:92px}
+.booking-btn{background:#fff;color:#414342;border-color:#fff;min-width:92px}
 .home-center{text-align:center;position:relative;z-index:4;margin-top:3vh;padding:24px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
 .home-center-logo{width:92px;height:92px;margin-bottom:22px;filter:drop-shadow(0 5px 14px rgba(0,0,0,.3))}
 .home-kicker{font-size:10px;letter-spacing:.34em;margin-left:.34em;margin-bottom:12px;opacity:.9}
@@ -108,8 +108,8 @@ body.home-mode .header,body.home-mode .nav{display:none}
 .home-center p{font-size:13px;letter-spacing:.08em;opacity:.92;margin:0}
 .menu-overlay{position:fixed;inset:0;z-index:100;visibility:hidden;pointer-events:none}.menu-overlay.open{visibility:visible;pointer-events:auto}
 .menu-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.46);opacity:0;transition:opacity .28s}.menu-overlay.open .menu-backdrop{opacity:1}
-.side-menu{position:absolute;left:0;top:0;bottom:0;width:min(360px,88vw);background:#f6f2e9;color:#17333a;padding:28px 24px;transform:translateX(-100%);transition:transform .3s ease;box-shadow:18px 0 50px rgba(0,0,0,.18)}.menu-overlay.open .side-menu{transform:translateX(0)}
-.menu-close{position:absolute;right:18px;top:18px;border:0;background:none;font-size:30px;color:#17333a;cursor:pointer}.menu-brand{display:flex;align-items:center;gap:12px;margin:8px 0 52px;font-size:11px;letter-spacing:.22em}.menu-brand img{width:42px;height:42px}.side-links{display:grid;gap:8px}.side-links button{border:0;background:transparent;text-align:left;padding:17px 10px;border-radius:13px;display:flex;align-items:center;gap:16px;color:#17333a;cursor:pointer}.side-links button:hover{background:#ebe5d9}.side-links span{width:28px;font-size:21px;text-align:center}.side-links b{font:500 24px Georgia,serif}
+.side-menu{position:absolute;left:0;top:0;bottom:0;width:min(360px,88vw);background:#f6f2e9;color:#414342;padding:28px 24px;transform:translateX(-100%);transition:transform .3s ease;box-shadow:18px 0 50px rgba(0,0,0,.18)}.menu-overlay.open .side-menu{transform:translateX(0)}
+.menu-close{position:absolute;right:18px;top:18px;border:0;background:none;font-size:30px;color:#414342;cursor:pointer}.menu-brand{display:flex;align-items:center;gap:12px;margin:8px 0 52px;font-size:11px;letter-spacing:.22em}.menu-brand img{width:42px;height:42px}.side-links{display:grid;gap:8px}.side-links button{border:0;background:transparent;text-align:left;padding:17px 10px;border-radius:13px;display:flex;align-items:center;gap:16px;color:#414342;cursor:pointer}.side-links button:hover{background:#ebe5d9}.side-links span{width:28px;font-size:21px;text-align:center}.side-links b{font:500 24px Georgia,serif}
 @media(max-width:520px){.home-topbar{height:78px;padding:13px 14px}.hamburger{width:43px;height:43px}.home-logo{width:45px;height:45px}.lang-toggle{padding:0 11px}.booking-btn{min-width:78px;padding:0 12px}.home-center-logo{width:76px;height:76px}.home-center h1{font-size:39px}.home-center p{font-size:11px}.side-menu{width:86vw}}
 
 
