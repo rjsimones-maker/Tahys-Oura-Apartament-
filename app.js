@@ -83,48 +83,79 @@ function home(){
  </div></section>`;
 }
 function apartment(){
- const photos=[
-  {src:"https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/837a13e8-8737-4e7a-95b0-2f3b01a2e0cd.jpeg?im_w=1200",title:"Living room"},
-  {src:"https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/510ca674-86e9-49b5-ac55-8c7699a45aa3.jpeg?im_w=1200",title:"Bedroom 1"},
-  {src:"https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/e756e997-980c-4548-a481-6f725e7af7de.jpeg?im_w=1200",title:"Bedroom 2"},
-  {src:"https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9d6c3a43-8bf2-445e-8a02-3d160dd90e20.jpeg?im_w=1200",title:"Apartment"},
-  {src:"https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9213a4d1-ec7b-4bba-b3b2-4e0c7dc34b81.png?im_w=1200",title:"Living room · detail"}
- ];
+ const photos={
+  "Sala":[
+   {src:"https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/837a13e8-8737-4e7a-95b0-2f3b01a2e0cd.jpeg?im_w=1200",title:"Sala"}
+  ],
+  "Cozinha":[
+   {src:"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NjE5NTc0NQ%3D%3D/original/68ec34bc-c5c7-40b2-a46f-3d4f02260c87.jpeg?im_w=1200",title:"Cozinha — fotografia do anúncio"}
+  ],
+  "Quarto 1":[
+   {src:"https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/510ca674-86e9-49b5-ac55-8c7699a45aa3.jpeg?im_w=1200",title:"Quarto 1"}
+  ],
+  "Quarto 2":[
+   {src:"https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/e756e997-980c-4548-a481-6f725e7af7de.jpeg?im_w=1200",title:"Quarto 2"}
+  ],
+  "WC":[
+   {src:"https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9d6c3a43-8bf2-445e-8a02-3d160dd90e20.jpeg?im_w=1200",title:"WC — fotografia do anúncio"}
+  ],
+  "Varanda":[
+   {src:"https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9213a4d1-ec7b-4bba-b3b2-4e0c7dc34b81.png?im_w=1200",title:"Varanda — fotografia do anúncio"}
+  ]
+ };
+ const tabs=Object.keys(photos);
  return `<section class="detail apartment-page">
  <style>
- .apt-gallery{display:grid;grid-template-columns:1.35fr 1fr;gap:7px;border-radius:22px;overflow:hidden;margin:-4px 0 22px;background:#eee}
- .apt-gallery img{width:100%;height:145px;object-fit:cover;display:block;cursor:pointer;transition:transform .3s}
- .apt-gallery img:first-child{height:297px;grid-row:span 2}
- .apt-gallery img:hover{transform:scale(1.02)}
- .gallery-note{font-size:11px;opacity:.58;margin:-12px 0 18px}
- @media(max-width:520px){.apt-gallery{grid-template-columns:1.4fr 1fr}.apt-gallery img{height:105px}.apt-gallery img:first-child{height:217px}}
+ .apt-tabs{display:flex;gap:7px;overflow-x:auto;padding:2px 0 10px;margin:0 0 14px;scrollbar-width:none}
+ .apt-tabs::-webkit-scrollbar{display:none}
+ .apt-tab{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:9px 13px;font:600 12px inherit;cursor:pointer}
+ .apt-tab.active{background:var(--deep);color:#fff;border-color:var(--deep)}
+ .apt-panel{display:none}.apt-panel.active{display:block}
+ .apt-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+ .apt-card{margin:0;border-radius:16px;overflow:hidden;background:#eee;cursor:pointer}
+ .apt-card img{width:100%;height:180px;object-fit:cover;display:block;transition:transform .25s}
+ .apt-card:hover img{transform:scale(1.02)}
+ .apt-caption{padding:9px 10px;background:#fff;font-size:12px}
+ .gallery-note{font-size:11px;opacity:.65;margin:2px 0 18px}
+ @media(max-width:520px){.apt-card img{height:145px}}
  .apt-lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;display:none;align-items:center;justify-content:center;padding:18px}
  .apt-lightbox img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:8px}
  .apt-lightbox button{position:absolute;top:16px;right:16px;border:0;background:rgba(255,255,255,.16);color:#fff;width:42px;height:42px;border-radius:50%;font-size:25px}
  </style>
- <div class="apt-gallery">${photos.map((p,i)=>`<img src="${p.src}" alt="${p.title} — Tahys Oura Apartment" loading="${i?'lazy':'eager'}" onclick="openAptPhoto(${i})" onerror="this.style.opacity='.2'">`).join('')}</div>
- <div class="gallery-note">Fotografias do anúncio oficial do Tahys Oura Apartment no Airbnb. <a href="https://www.airbnb.com/rooms/6195745" target="_blank" rel="noopener">Ver todas as fotografias no Airbnb ↗</a></div>
  <h1>The Apartment</h1>
- <p class="sub">Apartamento moderno e renovado, orientado a oeste, muito luminoso e com vista para o mar.</p>
- <div class="box"><h3>Características</h3><p>90 m² · 2 quartos · 6 camas · 1 casa de banho · máximo 6 hóspedes. O anúncio indica 2 camas de 80 cm num quarto, 2 camas de 90 cm no outro e 2 sofás-cama na sala.</p></div>
- <div class="box"><h3>Conforto</h3><p>Janelas com vidro duplo, isolamento térmico e acústico, ar condicionado nos quartos e sala, Smart TV, Wi‑Fi, cozinha equipada, máquina de lavar roupa e máquina de lavar loiça.</p></div>
+ <p class="sub">Conheça cada espaço do Tahys Oura Apartment.</p>
+ <div class="apt-tabs">${tabs.map((t,i)=>`<button class="apt-tab ${i===0?'active':''}" onclick="showAptTab('${t.replace(/'/g,"\\'")}',this)">${t}</button>`).join('')}</div>
+ ${tabs.map((t,i)=>`<div class="apt-panel ${i===0?'active':''}" data-apt-tab="${t}">
+   <div class="apt-grid">${photos[t].map((p,j)=>`<figure class="apt-card" onclick="openAptPhoto('${t}',${j})"><img src="${p.src}" alt="${p.title} — Tahys Oura Apartment" loading="${i||j?'lazy':'eager'}" onerror="this.style.opacity='.25'"><figcaption class="apt-caption">${p.title}</figcaption></figure>`).join('')}</div>
+ </div>`).join('')}
+ <div class="gallery-note">Fotografias do anúncio oficial do Tahys Oura Apartment no Airbnb. A página identifica estes espaços no anúncio; algumas fotografias podem ser atualizadas pelo anfitrião. <a href="https://www.airbnb.com/rooms/6195745" target="_blank" rel="noopener">Ver todas as fotografias no Airbnb ↗</a></div>
+ <div class="box"><h3>O apartamento</h3><p>90 m² · 2 quartos · 6 camas · 1 casa de banho · máximo 6 hóspedes. Apartamento renovado, muito luminoso, virado a oeste, com vista mar.</p></div>
+ <div class="box"><h3>Conforto</h3><p>Vidro duplo, isolamento térmico e acústico, ar condicionado nos quartos e sala, Smart TV, Wi‑Fi, cozinha equipada, máquina de lavar roupa e máquina de lavar loiça.</p></div>
  <div class="box"><h3>Quartos</h3><p>As camas individuais podem ser unidas para formar uma cama dupla tipo king. Blackouts foram previstos para melhorar o conforto durante o sono.</p></div>
- <div class="box"><h3>Varanda</h3><p>Varanda com banco para duas pessoas e vista mar, adequada para aproveitar o sol e o pôr do sol.</p></div>
+ <div class="box"><h3>Varanda</h3><p>Banco para duas pessoas e vista mar, ideal para aproveitar o pôr do sol.</p></div>
  <div class="box"><h3>Amenities</h3><p>O anúncio indica sabonete e gel de duche de qualidade superior, da marca Bvlgari/Bulgari, além de toalhas.</p></div>
- <div class="box"><h3>Check-in / Check-out</h3><p>Check-in: 16:00–02:00 · Check-out: antes das 11:00.</p></div>
  <button class="btn" onclick="go('stay')">Open My Stay</button>
  <div id="aptLightbox" class="apt-lightbox" onclick="closeAptPhoto(event)"><button aria-label="Close">×</button><img id="aptLightboxImg" src="" alt=""></div>
  </section>`;
 }
-function openAptPhoto(i){
- const photos=[
-  "https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/837a13e8-8737-4e7a-95b0-2f3b01a2e0cd.jpeg?im_w=1600",
-  "https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/510ca674-86e9-49b5-ac55-8c7699a45aa3.jpeg?im_w=1600",
-  "https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/e756e997-980c-4548-a481-6f725e7af7de.jpeg?im_w=1600",
-  "https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9d6c3a43-8bf2-445e-8a02-3d160dd90e20.jpeg?im_w=1600",
-  "https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9213a4d1-ec7b-4bba-b3b2-4e0c7dc34b81.png?im_w=1600"
- ];
- const box=document.getElementById('aptLightbox'),img=document.getElementById('aptLightboxImg'); if(box&&img){img.src=photos[i];box.style.display='flex';}
+function showAptTab(name,btn){
+ document.querySelectorAll('.apt-tab').forEach(x=>x.classList.remove('active'));
+ document.querySelectorAll('.apt-panel').forEach(x=>x.classList.remove('active'));
+ btn.classList.add('active');
+ const panel=document.querySelector(`[data-apt-tab="${name}"]`);
+ if(panel) panel.classList.add('active');
+}
+function openAptPhoto(tab,i){
+ const urls={
+  "Sala":["https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/837a13e8-8737-4e7a-95b0-2f3b01a2e0cd.jpeg?im_w=1600"],
+  "Cozinha":["https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NjE5NTc0NQ%3D%3D/original/68ec34bc-c5c7-40b2-a46f-3d4f02260c87.jpeg?im_w=1600"],
+  "Quarto 1":["https://a0.muscache.com/im/pictures/miso/Hosting-6195745/original/510ca674-86e9-49b5-ac55-8c7699a45aa3.jpeg?im_w=1600"],
+  "Quarto 2":["https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/e756e997-980c-4548-a481-6f725e7af7de.jpeg?im_w=1600"],
+  "WC":["https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9d6c3a43-8bf2-445e-8a02-3d160dd90e20.jpeg?im_w=1600"],
+  "Varanda":["https://a0.muscache.com/im/pictures/hosting/Hosting-6195745/original/9213a4d1-ec7b-4bba-b3b2-4e0c7dc34b81.png?im_w=1600"]
+ };
+ const box=document.getElementById('aptLightbox'),img=document.getElementById('aptLightboxImg');
+ if(box&&img&&urls[tab]&&urls[tab][i]){img.src=urls[tab][i];box.style.display='flex';}
 }
 function closeAptPhoto(e){if(e.target.id==='aptLightbox'||e.target.tagName==='BUTTON')document.getElementById('aptLightbox').style.display='none';}
 
