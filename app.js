@@ -60,27 +60,24 @@ function card(icon,title,text,route){
 }
 function home(){
  return `
- <div class="hero"><span class="eyebrow">ALBUFEIRA · ALGARVE</span>
- <h1>Tahys Oura<br>Apartment</h1>
- <p>Seu guia privado para uma estadia especial no Algarve.</p></div>
- <section class="section">
- <h2>Welcome</h2>
- <p class="sub">Bem-vindo ao Tahys Oura Apartment. O apartamento está situado na Urbanização Quinta Pedra dos Bicos, em frente à Praia da Oura, com vista mar e a poucos minutos a pé das principais praias e serviços.</p>
- <div class="grid">
- ${card("🏠","The Apartment","90 m² · 2 quartos · 6 hóspedes · vista mar","apartment")}
- ${card("♧","My Stay","Tudo o que precisa antes e durante a estadia.","stay")}
- ${card("🍽️","Eat & Drink","Restaurantes por cozinha, preço e distância.","restaurants")}
- ${card("🏖️","Beaches","Praias com fotografia e restaurantes de praia.","beaches")}
- ${card("🗺️","Discover","Locais a visitar em Albufeira e no Algarve.","discover")}
- ${card("🎯","Activities","Experiências para famílias, casais e aventura.","activities")}
- </div></section>
- <section class="section"><h2>At a glance</h2>
- <div class="list">
- ${row("🌊","Praia da Oura Leste","Aproximadamente 150 m","beaches")}
- ${row("🛒","Intermarché","Aproximadamente 100 m","supermarkets")}
- ${row("🛒","Aldi","Aproximadamente 400 m","supermarkets")}
- ${row("🌙","Oura Strip","Aproximadamente 200 m","discover")}
- </div></section>`;
+ <section class="lux-home">
+   <div class="lux-hero-content">
+     <div class="lux-kicker">ALBUFEIRA · ALGARVE</div>
+     <h1>Tahys Oura</h1>
+     <div class="lux-rule"></div>
+     <p class="lux-lead">A private home by the Atlantic.</p>
+     <p class="lux-intro">Quinta Pedra dos Bicos · Praia da Oura</p>
+     <button class="lux-cta" onclick="go('apartment')">EXPLORE YOUR STAY <span>→</span></button>
+   </div>
+
+   <div class="lux-bottom">
+     <button onclick="go('apartment')"><span>01</span>The Apartment</button>
+     <button onclick="go('stay')"><span>02</span>My Stay</button>
+     <button onclick="go('discover')"><span>03</span>Discover Algarve</button>
+   </div>
+
+   <div class="lux-scroll">SCROLL TO EXPLORE <span>↓</span></div>
+ </section>`;
 }
 function apartment(){
  const photos={
