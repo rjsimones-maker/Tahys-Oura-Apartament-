@@ -84,6 +84,8 @@ function home(){
  </div></section>
  <section class="section"><h2>At a glance</h2>
  <div class="list">
+ ${row("🏊","Pool Access","Acesso à piscina · pulseira RFID · máximo 6 hóspedes","poolAccess")}
+ ${row("🏖️","Beach Access","Praia da Oura Leste · 350 m · cerca de 5 minutos a pé","beachAccess")}
  ${row("🌊","Praia da Oura Leste","Aproximadamente 150 m","beaches")}
  ${row("🛒","Intermarché","Aproximadamente 100 m","supermarkets")}
  ${row("🛒","Aldi","Aproximadamente 400 m","supermarkets")}
@@ -203,6 +205,14 @@ function stay(){
  ${row("🛡️","Security","Contactos de segurança e emergência","security")}
  ${row("📶","Wi‑Fi & Apartment Guide","Internet e equipamentos","wifi")}
  </div></section>`;
+}
+function poolAccess(){
+ if(!S.private)return stay();
+ return privatePage("Pool Access","🏊",`<div class="box"><h3>Swimming Pool Access</h3><p>O complexo de piscina é propriedade da <b>Quinta Pedra dos Bicos Hotels</b> e o acesso é efetuado através de uma <b>pulseira RFID</b>.</p><p><b>Máximo de 6 hóspedes</b> do apartamento podem utilizar o acesso.</p><p>Para mais informações, consulte o <b>livro de informações</b> disponível no apartamento.</p></div>`);
+}
+function beachAccess(){
+ if(!S.private)return stay();
+ return privatePage("Beach Access","🏖️",`<div class="beach-access-card"><img src="beach-access-map.png" alt="Mapa ilustrado do percurso pedonal entre o apartamento e a praia" loading="eager"><div class="beach-access-copy"><h3>Praia da Oura Leste</h3><p><b>350 m · aproximadamente 5 minutos a pé</b></p><p>O mapa mostra o percurso pedonal desde o apartamento até ao acesso à praia.</p></div></div>`);
 }
 function discoveryPrivate(){
  if(!S.private)return stay();
@@ -377,7 +387,7 @@ function concierge(){
 function login(){if(document.getElementById("code").value==="1234"){S.private=true;go("stay")}else toast("Código incorrecto. Use 1234 na demonstração.");}
 function toast(m){const t=document.getElementById("toast");t.textContent=m;t.style.display="block";setTimeout(()=>t.style.display="none",2400);}
 const routes={
- home,apartment,stay,restaurants,beaches,supermarkets,activities,discover,discoveryPublic,discoveryPrivate,concierge,pharmacy,nightlife,exploreAlgarve,sunset,gastronomy,
+ home,apartment,stay,poolAccess,beachAccess,restaurants,beaches,supermarkets,activities,discover,discoveryPublic,discoveryPrivate,concierge,pharmacy,nightlife,exploreAlgarve,sunset,gastronomy,
  transfer:()=>privatePage("Airport Transfer","🚕",`<div class="box"><h3>Transfer</h3><p>Na V2 vamos criar um formulário real com voo, hora de chegada, passageiros, bagagem e confirmação do transfer Faro → Tahys Oura.</p></div><button class="btn" onclick="toast('Pedido guardado no modo demonstração.')">Request Transfer</button>`),
  amenities:()=>privatePage("Welcome Amenities","🎁",`<div class="box"><h3>Included</h3><p>O anúncio indica sabonete e gel de duche de qualidade superior. Na V2 vamos acrescentar a lista completa de amenities e a possibilidade de escolha antes da chegada.</p></div>`),
  pillows:()=>privatePage("Choose your pillows","🛏️",`<div class="box"><h3>Preference</h3><p><label><input type="radio" name="p" checked> Medium</label><br><label><input type="radio" name="p"> Soft</label><br><label><input type="radio" name="p"> Firm</label><br><label><input type="radio" name="p"> Memory Foam</label></p></div><button class="btn" onclick="toast('Preferência guardada.')">Save Choice</button>`),
